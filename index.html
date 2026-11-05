@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ayo Institut — soins visage, corps et rituels · Montreuil</title>
+<meta name="description" content="Ayo Institut, institut de beauté privé pour femmes à Montreuil : soins visage, minceur, rituels corps. Réservation en ligne avec acompte, carte cadeau, et espace institut avec agenda, clientes, tarifs et messages automatiques.">
+<meta name="theme-color" content="#7c2443">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%237c2443'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='17' text-anchor='middle' fill='%23f6e3e1'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+:root{--wine:#7c2443;--wine-d:#5e1a33;--wine-s:#f3e1e2;--blush:#f7ebe9;--rose:#e7c6c6;--cream:#fcf8f5;--paper:#fff;--ink:#2b1a1f;--mute:#7c666b;--line:#ecdcdb;--gold:#b0844f;--sage:#5f7a63;--ok:#2f7a4f;--warn:#b5651d;--ko:#b4232f;
+--c-rit:#7c2443;--c-vis:#b0844f;--c-corps:#5f7a63;--c-off:#8a5a9c}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 'Jost',system-ui,sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+a{color:inherit}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+.vis{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+/* barre de démonstration */
+.demo{position:sticky;top:0;z-index:60;background:var(--ink);color:#f4e6e6;display:flex;align-items:center;gap:14px;padding:8px 18px;font-size:13px}
+.demo b{font-weight:500;letter-spacing:.02em}
+.demo .sw{margin-left:auto;display:flex;background:#ffffff14;border-radius:30px;padding:3px}
+.demo .sw button{color:#e9d5d6;border-radius:30px;padding:5px 14px;font-size:13px;font-weight:500;position:relative}
+.demo .sw button.on{background:#f6e3e1;color:var(--ink)}
+.demo .sw i{position:absolute;top:-3px;right:-2px;min-width:17px;height:17px;border-radius:9px;background:#e0475f;color:#fff;font:600 10.5px/17px 'Jost';font-style:normal;text-align:center;padding:0 4px;display:none}
+.demo .sw i.on{display:block}
+.demo .rs{color:#cdb7b9;text-decoration:underline;text-underline-offset:3px;font-size:12.5px}
+/* ===== SITE CLIENTE ===== */
+#site{display:none}#site.on{display:block}
+.nav{position:sticky;top:41px;z-index:40;display:flex;align-items:center;gap:28px;padding:16px 48px;background:#fcf8f5e8;backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.sc{border-color:var(--line)}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+.logo b{font:600 27px 'Cormorant Garamond',serif;letter-spacing:.2em;color:var(--wine)}
+.logo small{font-size:9.5px;letter-spacing:.38em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.nav nav{display:flex;gap:26px;margin-left:auto;font-size:14.5px}
+.nav nav a{text-decoration:none;color:var(--ink);opacity:.8}
+.nav nav a:hover{opacity:1;color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:40px;padding:12px 24px;font-weight:500;font-size:15px;text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
+.btn.p{background:var(--wine);color:#fff;box-shadow:0 10px 24px -12px #7c2443aa}
+.btn.p:hover{background:var(--wine-d);transform:translateY(-1px)}
+.btn.o{border:1px solid var(--rose);background:var(--paper);color:var(--ink)}
+.btn.o:hover{border-color:var(--wine)}
+.btn.sm{padding:9px 18px;font-size:14px}
+.btn:disabled{opacity:.4;pointer-events:none}
+.hero{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding:56px 48px 70px;max-width:1240px;margin:auto}
+.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--wine)}
+.hero h1{font:500 clamp(46px,6.2vw,84px)/.98 'Cormorant Garamond',serif;letter-spacing:-.01em;margin:18px 0 22px}
+.hero h1 em{color:var(--wine);font-style:italic}
+.hero p.l{font-size:18px;color:#57434a;max-width:470px;font-weight:300}
+.hero .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.hero .facts{display:flex;gap:30px;margin-top:40px;font-size:13.5px;color:var(--mute)}
+.hero .facts b{display:block;font:600 26px 'Cormorant Garamond',serif;color:var(--ink)}
+.art{position:relative;aspect-ratio:1/1.05;border-radius:260px 260px 26px 26px;background:radial-gradient(120% 90% at 30% 20%,#f9e3df 0%,#efc9c6 45%,#d99ea4 100%);overflow:hidden;box-shadow:0 40px 80px -50px #7c2443}
+.art>svg{position:absolute;inset:0;width:100%;height:100%}
+.art .tag{position:absolute;left:22px;bottom:22px;background:#fffffff0;border-radius:18px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 12px 30px -16px #5e1a3366;max-width:280px}
+.art .tag i{width:40px;height:40px;border-radius:50%;background:var(--wine-s);display:grid;place-items:center;flex:none}
+.art .tag b{display:block;font-size:14.5px;font-weight:500}.art .tag small{font-size:12.5px;color:var(--mute)}
+.ribbon{background:var(--wine);color:#f8e8e8;overflow:hidden;white-space:nowrap;font:italic 500 21px 'Cormorant Garamond',serif;padding:12px 0}
+.ribbon div{display:inline-block;animation:defile 38s linear infinite}
+.ribbon span{margin:0 26px}.ribbon span::after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#e9b9be;margin-left:52px;vertical-align:middle}
+@keyframes defile{to{transform:translateX(-50%)}}
+section.s{padding:90px 48px;max-width:1240px;margin:auto}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:38px;flex-wrap:wrap}
+.sh h2{font:500 clamp(36px,4.4vw,56px)/1.02 'Cormorant Garamond',serif;margin-top:12px}
+.sh h2 em{color:var(--wine)}
+.sh p{max-width:430px;color:var(--mute)}
+/* rituel */
+.rit{background:var(--blush);border-radius:34px;padding:56px;display:grid;grid-template-columns:.85fr 1.15fr;gap:50px}
+.rit h2{font:500 clamp(36px,4vw,54px)/1.02 'Cormorant Garamond',serif;margin:12px 0 16px}
+.rit h2 em{color:var(--wine)}
+.rit p{color:#5d474d}
+.rit .off{margin-top:26px;background:var(--paper);border-radius:22px;padding:20px 22px;border:1px solid var(--rose)}
+.rit .off b{font:600 34px 'Cormorant Garamond',serif;color:var(--wine)}.rit .off s{color:var(--mute);margin-left:8px}
+.rit .off small{display:block;color:var(--mute);font-size:13.5px;margin:2px 0 14px}
+.steps{display:grid;gap:12px}
+.stp{display:grid;grid-template-columns:62px 1fr auto;gap:18px;align-items:center;background:#fffffffa;border-radius:22px;padding:16px 20px 16px 16px;transition:transform .25s,box-shadow .25s}
+.stp:hover{transform:translateX(4px);box-shadow:0 14px 30px -22px #5e1a33}
+.stp .ic{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--wine-s)}
+.stp h3{font:600 23px/1.1 'Cormorant Garamond',serif}
+.stp p{font-size:14px;color:var(--mute);margin-top:2px;line-height:1.45}
+.stp .pr{text-align:right}.stp .pr b{display:block;font:600 24px 'Cormorant Garamond',serif;color:var(--wine)}
+.stp .pr button{font-size:13px;color:var(--wine);text-decoration:underline;text-underline-offset:3px}
+/* carte des soins */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.tabs button{border:1px solid var(--line);background:var(--paper);border-radius:30px;padding:9px 18px;font-size:14.5px;color:#5d474d}
+.tabs button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative}
+.svc:hover{transform:translateY(-3px);box-shadow:0 22px 40px -30px #5e1a33;border-color:var(--rose)}
+.svc .top{display:flex;justify-content:space-between;align-items:center}
+.svc .cat{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.svc .du{font-size:13px;color:var(--mute);display:flex;align-items:center;gap:5px}
+.svc h3{font:600 26px/1.08 'Cormorant Garamond',serif}
+.svc p{font-size:14.5px;color:#6a565b;line-height:1.5;flex:1}
+.svc .bt{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:14px;border-top:1px dashed var(--line)}
+.svc .bt b{font:600 26px 'Cormorant Garamond',serif}.svc .bt b small{font:400 13px 'Jost';color:var(--mute);margin-right:3px}
+.svc .bt s{color:var(--mute);font-size:14px;margin-left:6px}
+.svc .flag{position:absolute;top:-10px;right:20px;background:var(--wine);color:#fff;font-size:11.5px;border-radius:20px;padding:3px 11px;letter-spacing:.04em}
+.svc .dom{font-size:12.5px;color:var(--sage);display:flex;gap:6px;align-items:center}
+/* carte cadeau */
+.gift{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+.gform{display:grid;gap:14px}
+.f{display:grid;gap:6px;font-size:13.5px;color:var(--mute)}
+.f input,.f select,.f textarea{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px 14px;font-size:15.5px;color:var(--ink);outline:none;transition:border-color .2s;width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--wine)}
+.f .er{color:var(--ko);font-size:12.5px;display:none}.f.bad .er{display:block}.f.bad input{border-color:var(--ko)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.amts{display:flex;gap:8px;flex-wrap:wrap}
+.amts button{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:10px 14px;font-size:14px;text-align:left;line-height:1.3}
+.amts button small{display:block;color:var(--mute);font-size:12px}
+.amts button.on{border-color:var(--wine);background:var(--wine-s)}
+.gcard{position:relative;aspect-ratio:1.6/1;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,#7c2443 0%,#a3445f 55%,#d78e95 100%);color:#fbeeee;padding:30px 32px;box-shadow:0 40px 70px -40px #5e1a33;transform:rotate(-2deg);transition:transform .4s}
+.gcard:hover{transform:rotate(0)}
+.gcard svg{position:absolute;right:-30px;bottom:-40px;width:58%;opacity:.35}
+.gcard .lg{font:600 22px 'Cormorant Garamond',serif;letter-spacing:.24em}
+.gcard .lg small{display:block;font:400 9px 'Jost';letter-spacing:.4em;opacity:.8;margin-top:2px}
+.gcard .v{position:absolute;right:30px;top:28px;text-align:right;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+.gcard .v b{display:block;font:600 40px/1 'Cormorant Garamond',serif;letter-spacing:0;text-transform:none;margin-top:4px}
+.gcard .msg{position:absolute;left:32px;right:40%;bottom:28px}
+.gcard .msg em{font:italic 500 22px/1.2 'Cormorant Garamond',serif;display:block;margin-bottom:10px;word-wrap:break-word}
+.gcard .msg small{font-size:12px;opacity:.85;letter-spacing:.04em}
+/* infos */
+.infos{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:30px}
+.hours{width:100%;border-collapse:collapse;font-size:15px}
+.hours td{padding:9px 0;border-bottom:1px dashed var(--line)}.hours td:last-child{text-align:right}
+.hours tr.td td{color:var(--wine);font-weight:500}
+.open{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;border-radius:20px;padding:5px 12px;background:#e6f2ea;color:var(--ok);margin-bottom:16px}
+.open::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.open.cl{background:#f6e6e3;color:var(--ko)}
+.map{height:210px;border-radius:18px;overflow:hidden;background:#f1e7e2;margin:16px 0 18px;position:relative}
+.map svg{width:100%;height:100%}
+.contact{display:grid;gap:10px}
+.contact a{display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:16px;text-decoration:none;transition:border-color .2s}
+.contact a:hover{border-color:var(--wine)}
+.contact a i{width:34px;height:34px;border-radius:50%;background:var(--wine-s);display:grid;place-items:center;flex:none}
+.contact a small{display:block;color:var(--mute);font-size:12.5px}
+.foot{padding:50px 48px 40px;text-align:center;color:var(--mute);font-size:13.5px;border-top:1px solid var(--line);margin-top:30px}
+.foot .logo{align-items:center;margin-bottom:14px}
+.bar-m{display:none}
+/* réservation */
+.ov{position:fixed;inset:0;z-index:80;background:#2b1a1f66;backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);z-index:90;background:var(--cream);transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px -40px #2b1a1f}
+.dr.on{transform:none}
+.dr .hd{padding:20px 26px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.dr .hd h3{font:600 26px 'Cormorant Garamond',serif;flex:1}
+.x{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--paper);display:grid;place-items:center;flex:none}
+.prog{display:flex;gap:6px;padding:14px 26px 0}
+.prog span{flex:1;font-size:11.5px;color:var(--mute);letter-spacing:.04em}
+.prog span::before{content:"";display:block;height:3px;border-radius:3px;background:var(--line);margin-bottom:6px;transition:background .3s}
+.prog span.on{color:var(--wine)}.prog span.on::before{background:var(--wine)}
+.dr .bd{flex:1;overflow-y:auto;padding:22px 26px 30px}
+.dr .ft{padding:16px 26px calc(16px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;background:var(--paper)}
+.dr .ft .sum{flex:1;font-size:13px;color:var(--mute);line-height:1.35}
+.dr .ft .sum b{display:block;color:var(--ink);font-size:15px;font-weight:500}
+.lbl{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:20px 0 10px}
+.lbl:first-child{margin-top:0}
+.opt{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:13px 16px;margin-bottom:8px;transition:border-color .2s,background .2s}
+.opt b{font-weight:500;font-size:15.5px}.opt small{color:var(--mute);font-size:13px;grid-column:1}
+.opt .pp{grid-row:1/3;grid-column:2;font:600 21px 'Cormorant Garamond',serif;color:var(--wine)}
+.opt.on{border-color:var(--wine);background:var(--wine-s)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.seg button{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px;text-align:left;font-size:14.5px;line-height:1.35}
+.seg button small{display:block;color:var(--mute);font-size:12.5px}
+.seg button.on{border-color:var(--wine);background:var(--wine-s)}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin;scroll-snap-type:x mandatory}
+.days button{flex:none;width:66px;border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:10px 0;text-align:center;scroll-snap-align:start;line-height:1.2}
+.days button small{display:block;font-size:11.5px;color:var(--mute);text-transform:capitalize}
+.days button b{display:block;font:600 23px 'Cormorant Garamond',serif;margin:2px 0}
+.days button em{font-style:normal;font-size:10.5px;color:var(--sage)}
+.days button.on{background:var(--wine);border-color:var(--wine);color:#fff}.days button.on small,.days button.on em{color:#f3d7da}
+.days button:disabled{opacity:.42}.days button:disabled em{color:var(--mute)}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.slots button{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:10px 0;font-size:14.5px;transition:all .15s}
+.slots button:hover{border-color:var(--wine)}
+.slots button.on{background:var(--wine);color:#fff;border-color:var(--wine)}
+.none{padding:22px;text-align:center;color:var(--mute);background:var(--paper);border-radius:16px;border:1px dashed var(--line);font-size:14.5px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#5d474d;margin-top:6px}
+.chk input{margin-top:4px;accent-color:var(--wine);width:16px;height:16px;flex:none}
+.recap{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:18px 20px}
+.recap div{display:flex;justify-content:space-between;gap:16px;padding:7px 0;font-size:14.5px;border-bottom:1px dashed var(--line)}
+.recap div:last-child{border:0}.recap span{color:var(--mute)}.recap b{font-weight:500;text-align:right}
+.pay{display:grid;gap:8px;margin-top:16px}
+.pay button{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:14px 16px;font-size:15px;text-align:left}
+.pay button.on{border-color:var(--wine);background:var(--wine-s)}
+.pay i{width:42px;height:28px;border-radius:6px;display:grid;place-items:center;font:600 11px 'Jost';font-style:normal;color:#fff;flex:none}
+.note{font-size:12.5px;color:var(--mute);margin-top:12px;display:flex;gap:8px;align-items:flex-start}
+.done{text-align:center;padding:10px 0 4px}
+.done .ck{width:76px;height:76px;border-radius:50%;background:var(--wine);margin:6px auto 18px;display:grid;place-items:center;animation:pop .5s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+.done h4{font:600 32px/1.1 'Cormorant Garamond',serif}
+.done p{color:var(--mute);margin:8px auto 20px;max-width:360px;font-size:14.5px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.acts a,.acts button{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:12px;font-size:14px;text-decoration:none}
+.spin{width:20px;height:20px;border:2px solid #ffffff66;border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+/* ===== ESPACE INSTITUT ===== */
+#pro{display:none;background:#f6f1ee;min-height:calc(100vh - 41px)}#pro.on{display:block}
+.ph{display:flex;align-items:center;gap:18px;padding:18px 28px;background:var(--paper);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.ph .logo b{font-size:22px}
+.ph h1{font:600 26px 'Cormorant Garamond',serif;margin-left:12px;padding-left:18px;border-left:1px solid var(--line)}
+.ph h1 small{display:block;font:400 13px 'Jost';color:var(--mute)}
+.ph .sp{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;padding:18px 28px 0}
+.kpi{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+.kpi span{font-size:12.5px;color:var(--mute)}
+.kpi b{display:block;font:600 30px/1.1 'Cormorant Garamond',serif;margin-top:2px}
+.kpi small{font-size:12px;color:var(--mute)}
+.ptabs{display:flex;gap:4px;padding:16px 28px 0;overflow-x:auto}
+.ptabs button{padding:10px 16px;border-radius:12px 12px 0 0;font-size:14.5px;color:var(--mute);font-weight:500;white-space:nowrap}
+.ptabs button.on{background:var(--paper);color:var(--ink);box-shadow:0 -1px 0 var(--line) inset}
+.pp{display:none;background:var(--paper);margin:0 28px 28px;border:1px solid var(--line);border-radius:0 18px 18px 18px;padding:20px}
+.pp.on{display:block}
+.tb{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.tb .wk{font:600 22px 'Cormorant Garamond',serif;margin:0 6px;min-width:230px}
+.ib{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;background:var(--paper)}
+.sbtn{border:1px solid var(--line);border-radius:10px;padding:7px 13px;font-size:13.5px;background:var(--paper);font-weight:500}
+.sbtn.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sbtn.p{background:var(--wine);color:#fff;border-color:var(--wine)}
+.leg{display:flex;gap:14px;margin-left:auto;font-size:12.5px;color:var(--mute);flex-wrap:wrap}
+.leg span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px;background:var(--c)}
+.cal{display:grid;grid-template-columns:52px repeat(var(--n),1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+.cal .dh{z-index:7;background:#fbf7f5;border-bottom:1px solid var(--line);border-left:1px solid var(--line);padding:8px 10px;font-size:12.5px;color:var(--mute);line-height:1.25;position:sticky;top:0}
+.cal .dh b{display:block;font:600 19px 'Cormorant Garamond',serif;color:var(--ink)}
+.cal .dh.td{background:var(--wine-s)}.cal .dh.td b{color:var(--wine)}
+.cal .dh em{font-style:normal;float:right;font-size:11.5px}
+.cal .tc{position:relative;border-right:1px solid var(--line)}
+.cal .tc div{position:absolute;right:6px;font-size:11px;color:var(--mute);transform:translateY(-7px)}
+.col{position:relative;border-left:1px solid var(--line);background:repeating-linear-gradient(to bottom,transparent 0,transparent 59px,#efe5e3 59px,#efe5e3 60px);cursor:copy}
+.col.cl{background:repeating-linear-gradient(135deg,#f6efec 0,#f6efec 8px,#fbf7f5 8px,#fbf7f5 16px);cursor:default}
+.col .clt{position:absolute;inset:0;display:grid;place-items:center;color:var(--mute);font-size:13px}
+.col .mid{position:absolute;top:0;bottom:0;left:50%;border-left:1px dashed #f0e6e4}
+.ev{position:absolute;border-radius:8px;padding:4px 7px;font-size:11.5px;line-height:1.3;overflow:hidden;color:var(--ink);background:color-mix(in srgb,var(--c) 14%,#fff);border-left:3px solid var(--c);cursor:pointer;transition:box-shadow .2s,transform .2s;text-align:left}
+.ev:hover{box-shadow:0 8px 18px -10px #2b1a1f;z-index:3}
+.ev b{font-weight:600;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ev span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#5d474d}
+.ev.past{opacity:.55}
+.ev.att{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 12%,#fff) 0 6px,#fff 6px 12px)}
+.ev.abs{opacity:.45;text-decoration:line-through}
+.ev.nw{animation:nw 1.4s ease-in-out infinite;z-index:4}
+@keyframes nw{50%{box-shadow:0 0 0 4px #e0475f55}}
+.ev.blk{background:repeating-linear-gradient(135deg,#ece4e2 0 6px,#f6f1ef 6px 12px);border-left-color:#9a8a8d;cursor:pointer}
+.ev .ic{position:absolute;right:5px;top:4px}
+.now{position:absolute;left:0;right:0;height:2px;background:#e0475f;z-index:5;pointer-events:none}
+.now::before{content:"";position:absolute;left:-4px;top:-3px;width:8px;height:8px;border-radius:50%;background:#e0475f}
+.calw{overflow:auto;max-height:690px;border-radius:14px}
+/* tiroir pro */
+.pd .bd h4{font:600 28px/1.1 'Cormorant Garamond',serif}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 16px}
+.chip{font-size:12px;border-radius:20px;padding:3px 10px;background:#f2ebe9;color:#5d474d}
+.chip.ok{background:#e6f2ea;color:var(--ok)}.chip.w{background:#fbefdf;color:var(--warn)}.chip.ko{background:#f8e3e4;color:var(--ko)}.chip.n{background:#fde4e8;color:#c0263f}
+.dl{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;font-size:14.5px;margin:6px 0 18px}
+.dl dt{color:var(--mute)}
+.pbtns{display:grid;gap:8px}
+.pbtns button,.pbtns a{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:14.5px;text-align:left;background:var(--paper);text-decoration:none}
+.pbtns .dan{color:var(--ko)}
+.hint{font-size:13.5px;border-radius:12px;padding:10px 12px;margin-top:4px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hint.ok{background:#e6f2ea;color:var(--ok)}.hint.ko{background:#f8e3e4;color:var(--ko)}
+.hint button{text-decoration:underline;font-weight:500;color:inherit}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px}
+.t th{text-align:left;font-weight:500;font-size:12.5px;color:var(--mute);padding:10px;border-bottom:1px solid var(--line)}
+.t td{padding:11px 10px;border-bottom:1px solid #f3eaea;vertical-align:middle}
+.t tr.cl{cursor:pointer}.t tr.cl:hover td{background:#fcf7f6}
+.t .av{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--wine-s);color:var(--wine);font-weight:600;font-size:12.5px;margin-right:10px;vertical-align:middle}
+.t input[type=number]{width:84px;border:1px solid var(--line);border-radius:10px;padding:7px 9px;text-align:right}
+.t select{border:1px solid var(--line);border-radius:10px;padding:7px 9px;background:var(--paper)}
+.tg{position:relative;width:42px;height:24px;border-radius:12px;background:#ddd0cf;transition:background .2s;flex:none}
+.tg::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 1px 3px #0003}
+.tg.on{background:var(--ok)}.tg.on::after{transform:translateX(18px)}
+.srch{border:1px solid var(--line);border-radius:12px;padding:9px 13px;min-width:240px;background:var(--paper)}
+.cgh{font:600 20px 'Cormorant Garamond',serif;margin:18px 0 4px;color:var(--wine)}
+.msgs{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.mc{border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:12px}
+.mc .h{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.mc .h b{flex:1;font-weight:500}
+.mc .h small{display:block;color:var(--mute);font-size:12.5px;font-weight:400}
+.mc textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:14px;min-height:92px;resize:vertical;line-height:1.5}
+.vars{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.vars button{font:500 12px 'Jost';background:#f3ecea;border-radius:8px;padding:3px 8px;color:#5d474d}
+.phone{background:#e9dfd8;border-radius:30px;padding:16px;position:sticky;top:60px}
+.phone .wh{background:#5e1a33;color:#fff;border-radius:16px 16px 0 0;padding:10px 14px;font-size:13.5px;display:flex;gap:10px;align-items:center}
+.phone .wh i{width:30px;height:30px;border-radius:50%;background:#f6e3e1;color:var(--wine);display:grid;place-items:center;font:600 14px 'Cormorant Garamond';font-style:normal}
+.phone .th{background:#f4ece6;border-radius:0 0 16px 16px;padding:14px;min-height:340px;display:flex;flex-direction:column;gap:10px}
+.bub{background:#fff;border-radius:4px 14px 14px 14px;padding:9px 12px;font-size:13.5px;line-height:1.45;max-width:90%;box-shadow:0 1px 1px #0000000d;white-space:pre-wrap}
+.bub small{display:block;text-align:right;color:var(--mute);font-size:11px;margin-top:4px}
+.bub.lab{background:none;box-shadow:none;align-self:center;font-size:11.5px;color:var(--mute);padding:0}
+.log{margin-top:16px;font-size:13.5px}
+.log div{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.log span{color:var(--mute);min-width:96px}
+.st2{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.bars{display:grid;gap:10px}
+.br{display:grid;grid-template-columns:200px 1fr 60px;gap:12px;align-items:center;font-size:14px}
+.br u{height:10px;border-radius:0 5px 5px 0;background:#f2ebe9;position:relative;text-decoration:none;overflow:hidden}
+.br u i{position:absolute;left:0;top:0;bottom:0;background:var(--wine);border-radius:0 5px 5px 0;transition:width .8s cubic-bezier(.2,.8,.2,1)}
+.br b{text-align:right;font-weight:500}
+.vb{display:flex;align-items:flex-end;gap:12px;height:220px;padding-top:24px;border-bottom:1px solid var(--line)}
+.vb div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;font-size:12px;color:var(--mute);gap:6px}
+.vb i{width:100%;max-width:46px;background:var(--wine);border-radius:5px 5px 0 0;position:relative;transition:height .8s cubic-bezier(.2,.8,.2,1);min-height:2px}
+.vb i.fu{background:repeating-linear-gradient(135deg,var(--wine) 0 5px,#a3445f 5px 10px);opacity:.55}
+.vb i em{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-style:normal;font-size:11.5px;color:var(--ink);white-space:nowrap}
+.ttl{font:600 21px 'Cormorant Garamond',serif;margin-bottom:12px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;border-radius:16px;padding:12px 18px;font-size:14.5px;z-index:120;transition:.35s cubic-bezier(.2,.8,.2,1);display:flex;gap:10px;align-items:center;max-width:92vw;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:980px){
+ .nav{padding:12px 18px;gap:12px}.nav nav{display:none}.nav .btn{margin-left:auto}
+ .hero{grid-template-columns:1fr;padding:26px 18px 40px;gap:28px}.hero .facts{gap:20px}
+ section.s{padding:60px 18px}
+ .rit{grid-template-columns:1fr;padding:28px 18px;border-radius:26px;gap:26px}
+ .stp{grid-template-columns:48px 1fr;padding:14px}.stp .ic{width:48px;height:48px}.stp .pr{grid-column:2;text-align:left;display:flex;gap:14px;align-items:center}.stp .pr b{display:inline}
+ .grid{grid-template-columns:1fr}.gift,.infos{grid-template-columns:1fr}.gift{gap:30px}
+ .gcard{transform:none;padding:22px}.gcard .msg{left:22px;bottom:20px;right:30%}.gcard .msg em{font-size:18px}.gcard .v b{font-size:32px}.gcard .v{right:22px;top:20px}
+ .card{padding:22px}
+ .bar-m{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:45;gap:8px}
+ .bar-m .btn{flex:1;padding:14px}
+ .foot{padding-bottom:100px}
+ .demo{padding:8px 12px;gap:8px}.demo b{display:none}.demo .rs{font-size:12px}
+ .kpis{grid-template-columns:repeat(2,1fr);padding:14px 14px 0}.kpis .kpi:last-child{grid-column:1/-1}
+ .ph{padding:14px}.ph h1{margin-left:0;padding-left:12px}
+ .ptabs{padding:14px 14px 0}.pp{margin:0 14px 20px;padding:14px}
+ .msgs,.st2{grid-template-columns:1fr}
+ .tb .wk{min-width:0;font-size:19px}.leg{display:none}
+ .br{grid-template-columns:110px 1fr 60px}
+ .row2{grid-template-columns:1fr}
+ .slots{grid-template-columns:repeat(3,1fr)}
+ .t .hm{display:none}
+ .t td,.t th{padding:10px 5px}.t input[type=number]{width:58px;padding:7px 6px}.t select{padding:7px 4px;max-width:86px}
+}
+.t td:has(input[type=number]){white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="demo"><b>Ayo Institut · plateforme de réservation et de gestion</b><div class="sw" role="tablist" aria-label="Vue"><button data-v="site" class="on">Site des clientes</button><button data-v="pro">Espace institut<i id="badge">0</i></button></div><button class="rs" id="reset">Réinitialiser la démo</button></div>
+
+<!-- ===================== SITE CLIENTE ===================== -->
+<div id="site" class="on">
+<header class="nav" id="nav"><a class="logo" href="#accueil"><b>AYO</b><small>Institut · Montreuil</small></a>
+<nav><a href="#rituel">Le rituel</a><a href="#soins">Les soins</a><a href="#cadeau">Carte cadeau</a><a href="#infos">Infos pratiques</a></nav>
+<button class="btn p sm" data-book>Réserver</button></header>
+
+<section class="hero" id="accueil">
+ <div><span class="eyebrow">Institut privé pour femmes</span>
+ <h1>Prendre soin de vous, <em>sans compromis.</em></h1>
+ <p class="l">Soins visage aux technologies coréennes, minceur haute technologie et rituels corps inspirés des traditions africaines, dans un espace calme et intime.</p>
+ <div class="cta"><button class="btn p" data-book>Réserver un soin</button><a class="btn o" href="#soins">Découvrir la carte</a></div>
+ <div class="facts"><div><b id="nbSoins">22</b>soins à la carte</div><div><b>2</b>praticiennes diplômées</div><div><b>7j/7</b>réservation en ligne</div></div></div>
+ <div class="art" aria-hidden="true"><svg viewBox="0 0 500 525" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="gl" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs><circle cx="250" cy="210" r="210" fill="url(#gl)"/><g id="hib" fill="none" stroke="#7c2443" stroke-width="2.2" stroke-linecap="round" opacity=".85"></g><g fill="none" stroke="#5e1a33" stroke-width="1.6" opacity=".55"><path d="M60 520 C 90 420 70 360 120 300"/><path d="M120 300 C 80 300 58 330 62 360 C 92 352 112 332 120 300Z"/><path d="M98 380 C 60 372 36 396 32 424 C 66 426 88 408 98 380Z"/><path d="M440 520 C 420 450 450 400 420 350"/><path d="M420 350 C 452 344 472 366 470 392 C 444 392 426 376 420 350Z"/></g></svg>
+ <div class="tag"><i><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 2.5 12.2 7l4.9.6-3.6 3.4.9 4.9L10 13.6 5.6 15.9l.9-4.9L2.9 7.6 7.8 7z" fill="#7c2443"/></svg></i><div><b>Prochain créneau libre</b><small id="nextFree">—</small></div></div></div>
+</section>
+
+<div class="ribbon" aria-hidden="true"><div id="rib"></div></div>
+
+<section class="s" id="rituel"><div class="rit rv">
+ <div><span class="eyebrow">Signature de la maison</span><h2>Le rituel <em>Ayana</em></h2>
+ <p>Ayana signifie « belle fleur ». Un soin corporel complet en trois temps, inspiré des gestes transmis de mère en fille : gommage exfoliant, lavage traditionnel, puis massage aux huiles chaudes. Peau nourrie, corps détendu, esprit libéré.</p>
+ <div class="off"><span class="eyebrow">Offre de saison</span><div><b id="ayPrice">125 €</b><s id="ayOld">180 €</s></div><small>Rituel complet et soin visage Hydra Glow offert, en institut ou à domicile à Montreuil et alentours (93, 94, 75).</small><button class="btn p sm" data-book="ayana">Réserver le rituel</button></div></div>
+ <div class="steps" id="steps"></div>
+</div></section>
+
+<section class="s" id="soins">
+ <div class="sh rv"><div><span class="eyebrow">La carte</span><h2>Des protocoles pensés <em>pour votre peau</em></h2></div><p>Chaque soin commence par un diagnostic. Les tarifs affichés sont ceux du jour, mis à jour en direct par l'institut.</p></div>
+ <div class="tabs" id="cats" role="tablist"></div>
+ <div class="grid" id="cards"></div>
+</section>
+
+<section class="s" id="cadeau"><div class="gift">
+ <div class="rv"><span class="eyebrow">Carte cadeau</span><div class="sh" style="margin-bottom:22px"><h2>Offrez un moment <em>rien que pour elle</em></h2></div>
+ <div class="gform">
+  <div class="f"><span>Choisissez le cadeau</span><div class="amts" id="gAmts"></div></div>
+  <div class="row2"><label class="f">Pour<input id="gTo" value="Maman" maxlength="22"></label><label class="f">De la part de<input id="gFrom" value="Inès" maxlength="22"></label></div>
+  <label class="f">Votre message<input id="gMsg" value="Parce que tu le mérites." maxlength="60"></label>
+  <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn p" id="gBuy">Offrir cette carte</button><button class="btn o" id="gDl">Télécharger l'aperçu</button></div>
+ </div></div>
+ <div class="gcard rv" id="gCard"><div class="lg">AYO<small>INSTITUT · MONTREUIL</small></div><div class="v">Carte cadeau<b id="gVal">125 €</b></div><div class="msg"><em id="gTxt">Parce que tu le mérites.</em><small id="gWho">Pour Maman · de la part d'Inès</small></div><svg viewBox="-80 -80 160 160"><g fill="none" stroke="#fff" stroke-width="2" id="hib2"></g></svg></div>
+</div></section>
+
+<section class="s" id="infos">
+ <div class="sh rv"><div><span class="eyebrow">Infos pratiques</span><h2>Venir <em>à l'institut</em></h2></div></div>
+ <div class="infos">
+  <div class="card rv"><span class="open" id="openNow">Ouvert</span><table class="hours" id="hours"></table><p style="font-size:13.5px;color:var(--mute);margin-top:14px">Acompte de <b id="acInfo">20 €</b> à la réservation, déduit du soin. Annulation ou report gratuits jusqu'à <b id="anInfo">48 h</b> avant.</p></div>
+  <div class="card rv"><div class="map"><svg viewBox="0 0 400 210" preserveAspectRatio="xMidYMid slice"><rect width="400" height="210" fill="#f1e7e2"/><g stroke="#fff" stroke-width="14" fill="none"><path d="M-10 150 Q 120 120 210 140 T 420 110"/><path d="M90 -10 L 150 230"/><path d="M290 -10 Q 270 100 310 230"/></g><g stroke="#fff" stroke-width="6" fill="none"><path d="M-10 60 L 420 40"/><path d="M200 -10 L 230 230"/></g><path d="M330 30 h50 v40 h-50z" fill="#dfe8d8"/><path d="M20 170 h60 v40 h-60z" fill="#dfe8d8"/><text x="236" y="122" font-family="Jost" font-size="11" fill="#7c666b">Rue de Paris</text><g transform="translate(214 96)"><circle r="22" fill="#7c2443" opacity=".15"/><path d="M0 8 C -12 -4 -12 -18 0 -18 C 12 -18 12 -4 0 8Z" fill="#7c2443"/><circle cy="-10" r="4" fill="#fff"/></g></svg></div>
+  <div class="contact"><a href="https://www.google.com/maps/search/?api=1&query=Montreuil+93100" target="_blank" rel="noopener"><i><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 15s5-4.6 5-8.5A5 5 0 0 0 3 6.5C3 10.4 8 15 8 15z" fill="none" stroke="#7c2443" stroke-width="1.5"/><circle cx="8" cy="6.5" r="1.8" fill="#7c2443"/></svg></i><span>12 rue de l'Église, 93100 Montreuil<small>Métro Croix de Chavaux · ligne 9</small></span></a>
+  <a href="tel:+33100000000"><i><svg width="16" height="16" viewBox="0 0 16 16"><path d="M4.5 2h2l1 3-1.5 1a8 8 0 0 0 4 4l1-1.5 3 1v2A1.5 1.5 0 0 1 12.5 13 10.5 10.5 0 0 1 3 3.5 1.5 1.5 0 0 1 4.5 2z" fill="none" stroke="#7c2443" stroke-width="1.5"/></svg></i><span>01 00 00 00 00<small>Du lundi au samedi</small></span></a>
+  <a href="#" data-wa><i><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.8a6.2 6.2 0 0 0-5.4 9.3L1.8 14.2l3.2-.8A6.2 6.2 0 1 0 8 1.8z" fill="none" stroke="#7c2443" stroke-width="1.5"/></svg></i><span>Écrire sur WhatsApp<small>Réponse sous 2 h en journée</small></span></a></div></div>
+ </div>
+</section>
+<footer class="foot"><a class="logo" href="#accueil"><b>AYO</b><small>Institut · Montreuil</small></a>Institut de beauté privé pour femmes · Soins visage · Minceur · Rituels corps<br>Instagram · TikTok · Facebook</footer>
+<div class="bar-m"><a class="btn o" href="#soins">La carte</a><button class="btn p" data-book>Réserver</button></div>
+</div>
+
+<!-- ===================== ESPACE INSTITUT ===================== -->
+<div id="pro">
+ <div class="ph"><a class="logo" href="#"><b>AYO</b><small>Espace institut</small></a><h1 id="hello">Bonjour<small></small></h1><div class="sp"><button class="sbtn" id="pBlock">Bloquer un créneau</button><button class="sbtn p" id="pNew">+ Rendez-vous</button></div></div>
+ <div class="kpis" id="kpis"></div>
+ <div class="ptabs" id="ptabs"><button data-t="agenda" class="on">Agenda</button><button data-t="clientes">Clientes</button><button data-t="carte">Carte et tarifs</button><button data-t="messages">Messages automatiques</button><button data-t="stats">Statistiques</button></div>
+ <div class="pp on" id="pp-agenda"><div class="tb"><button class="ib" id="wPrev" aria-label="Semaine précédente"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M9 2 4 7l5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="ib" id="wNext" aria-label="Semaine suivante"><svg width="14" height="14" viewBox="0 0 14 14"><path d="m5 2 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button><button class="sbtn" id="wToday">Aujourd'hui</button><span class="wk" id="wLbl"></span><div style="display:flex;gap:4px" id="vMode"><button class="sbtn on" data-m="week">Semaine</button><button class="sbtn" data-m="day">Jour</button></div>
+ <div class="leg"><span style="--c:var(--c-rit)">Rituels</span><span style="--c:var(--c-vis)">Visage</span><span style="--c:var(--c-corps)">Corps et minceur</span><span style="--c:var(--c-off)">Offres</span></div></div>
+ <div class="calw"><div class="cal" id="cal"></div></div>
+ <p style="font-size:12.5px;color:var(--mute);margin-top:10px">Chaque journée est divisée en deux cabines. Cliquez sur un espace libre pour ajouter un rendez-vous pris par téléphone ; les créneaux se ferment automatiquement sur le site des clientes. Rayures : en attente de confirmation.</p></div>
+ <div class="pp" id="pp-clientes"></div>
+ <div class="pp" id="pp-carte"></div>
+ <div class="pp" id="pp-messages"></div>
+ <div class="pp" id="pp-stats"></div>
+</div>
+
+<!-- tiroirs -->
+<div class="ov" id="ov"></div>
+<aside class="dr" id="bk" aria-label="Réservation"><div class="hd"><h3 id="bkT">Réserver un soin</h3><button class="x" data-close aria-label="Fermer"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1 1 11" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+ <div class="prog" id="prog"><span>Soin</span><span>Créneau</span><span>Coordonnées</span><span>Acompte</span></div>
+ <div class="bd" id="bkB"></div><div class="ft" id="bkF"></div></aside>
+<aside class="dr pd" id="pd" aria-label="Détail"><div class="hd"><h3 id="pdT"></h3><button class="x" data-close aria-label="Fermer"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M1 1l10 10M11 1 1 11" stroke="currentColor" stroke-width="1.6"/></svg></button></div><div class="bd" id="pdB"></div><div class="ft" id="pdF" style="display:none"></div></aside>
+<div class="toast" id="toast"></div>
+<canvas id="gCv" width="1600" height="1000" hidden></canvas>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const pad=n=>String(n).padStart(2,'0'),ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const parse=s=>{const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)},addD=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const monday=d=>{const x=new Date(d.getFullYear(),d.getMonth(),d.getDate());x.setDate(x.getDate()-((x.getDay()+6)%7));return x};
+const hm=m=>Math.floor(m/60)+'h'+(m%60?pad(m%60):''),hhmm=m=>pad(Math.floor(m/60))+':'+pad(m%60);
+const eur=n=>(Math.round(n*100)/100).toLocaleString('fr-FR',{maximumFractionDigits:2})+' €';
+const JR=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],MS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+const MC=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const fdate=s=>{const d=parse(s);return `${JR[d.getDay()]} ${d.getDate()} ${MS[d.getMonth()]}`};
+const dur=m=>m>=60?Math.floor(m/60)+' h'+(m%60?' '+pad(m%60):''):m+' min';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const nowMin=()=>{const n=new Date();return n.getHours()*60+n.getMinutes()};
+const HOURS={1:[600,1110],2:[600,1110],3:[600,1110],4:[600,1170],5:[600,1170],6:[570,1110],0:null};
+const CATS={ayana:['Rituels','var(--c-rit)'],visage:['Visage','var(--c-vis)'],corps:['Corps et minceur','var(--c-corps)'],offres:['Offres','var(--c-off)']};
+const SVC0=[
+ {id:'iris',cat:'ayana',nom:'Gommage Iris',dur:45,prix:55,dom:1,d:"Exfoliation douce du corps pour éliminer les cellules mortes et révéler une peau lumineuse dès la première séance."},
+ {id:'neroli',cat:'ayana',nom:'Gommage et lavage Néroli',dur:60,prix:75,dom:1,d:"Gommage suivi du lavage traditionnel : la peau est profondément purifiée, soyeuse et prête à recevoir les soins."},
+ {id:'vanille',cat:'ayana',nom:'Gommage et massage Vanille',dur:80,prix:85,dom:1,d:"Exfoliation puis massage aux huiles nourrissantes qui détend les muscles et nourrit la peau en profondeur."},
+ {id:'ayana',cat:'ayana',nom:'Rituel Ayana complet',dur:90,prix:125,old:180,dom:1,tag:'Signature',d:"Gommage, lavage traditionnel et massage aux huiles chaudes, avec un soin visage Hydra Glow offert pendant l'offre de saison."},
+ {id:'glow',cat:'visage',nom:'Hydra Glow',dur:75,prix:70,d:"Nettoyage profond, hydratation et éclat immédiat. Le soin idéal pour une première visite."},
+ {id:'regard',cat:'visage',nom:'Regard lumineux',dur:75,prix:75,d:"Cernes, poches et ridules du contour de l'œil : un regard reposé, sans injection."},
+ {id:'vlift',cat:'visage',nom:'Lift V express',dur:75,prix:85,d:"Remodelage de l'ovale du visage et effet tenseur grâce aux microcourants."},
+ {id:'glass',cat:'visage',nom:'Glass Skin coréen',dur:75,prix:90,tag:'Le plus demandé',d:"Le teint lisse et translucide de la skincare coréenne : grain de peau affiné, éclat de verre."},
+ {id:'carboxy',cat:'visage',nom:'Oxygène Carboxy',dur:90,prix:100,d:"Oxygénation cutanée, peau repulpée et bonne mine dès la première séance, sans éviction sociale."},
+ {id:'fildor',cat:'visage',nom:"Soin fil d'or",dur:90,prix:100,d:"Soin anti-âge raffermissant aux actifs dorés, pour les peaux qui manquent de tonus."},
+ {id:'acides',cat:'visage',nom:'Éclat aux quatre acides',dur:75,prix:95,d:"Peeling doux de saison qui atténue les taches et unifie le teint, idéal en automne et en hiver."},
+ {id:'precieux',cat:'visage',nom:'Lift précieux',dur:90,prix:110,d:"Notre protocole anti-âge le plus complet : diagnostic, microcourants, masque liftant et massage du visage."},
+ {id:'rf1',cat:'corps',nom:'Radiofréquence, une zone',dur:45,prix:60,d:"Raffermit la peau et lisse l'aspect capitonné sur une zone ciblée : ventre, bras ou cuisses."},
+ {id:'lipo1',cat:'corps',nom:'Lipocavitation, une zone',dur:45,prix:60,d:"Ultrasons basse fréquence pour affiner une zone rebelle, sans douleur et sans éviction."},
+ {id:'liporf',cat:'corps',nom:'Lipocavitation et radiofréquence',dur:90,prix:90,d:"Le duo qui affine puis raffermit : la séance la plus complète pour remodeler la silhouette."},
+ {id:'vacuum',cat:'corps',nom:'Lipocavitation et palper-rouler',dur:90,prix:100,d:"Jusqu'à un centimètre gagné par point de mesure dès la première séance selon les clientes."},
+ {id:'solo',cat:'offres',nom:'Pack solo Nala',dur:105,prix:119,dom:1,tag:"Jusqu'au 31 décembre",d:"Le rituel Ayana complet, puis un soin visage complet le même jour : corps et visage sublimés en une seule visite."},
+ {id:'duo',cat:'offres',nom:'Pack duo Amara',dur:105,prix:169,old:210,duo:1,d:"Une parenthèse à deux, entre sœurs, mère et fille ou amies : rituel corps et soin visage côte à côte, dans nos deux cabines."},
+ {id:'dec-visage',cat:'offres',nom:'Séance découverte visage',dur:90,prix:69,old:95,d:"Diagnostic complet, soin adapté à votre peau et à la saison, et feuille de route personnalisée."},
+ {id:'dec-minceur',cat:'offres',nom:'Séance découverte minceur',dur:90,prix:59,old:80,d:"Bilan silhouette, séance ciblée ventre ou jambes, et programme minceur sur mesure."}];
+const CL0=[['Aïssatou','Diallo','06 12 48 73 20','Peau mixte, sensible au soleil'],['Clémence','Martin','06 31 22 90 14',''],['Nadia','Benali','07 68 41 05 33','Enceinte de 4 mois : pas de radiofréquence'],['Grâce','Mbarga','06 45 17 82 60','Peau sèche, préfère les huiles sans parfum'],['Léa','Roussel','06 98 03 41 27',''],['Fatou','Ndiaye','07 52 66 18 09','Cure minceur en cours, séance 3 sur 6'],['Inès','Lambert','06 20 75 38 91',''],['Murielle','Tchoua','06 73 59 24 46','Taches pigmentaires, éviter les acides forts'],['Sarah','Kouyaté','07 81 30 62 15',''],['Chloé','Petit','06 04 92 57 38','Première visite via Instagram'],['Awa','Sissoko','06 59 83 16 72',''],['Emma','Girard','06 37 21 49 05','Allergie aux huiles de noix'],['Yasmine','Haddad','07 14 68 93 27',''],['Ornella','Ebongué','06 86 45 70 12','Vient toujours avec sa sœur'],['Julie','Moreau','06 23 57 81 40',''],['Mariam','Koné','07 46 09 35 81','Préfère la cabine 2, plus calme']];
+const SRC=['En ligne','En ligne','En ligne','En ligne','Téléphone','Instagram','WhatsApp'];
+const MSG0={conf:{on:1,quand:'À la réservation',t:"Bonjour {prenom}, votre rendez-vous {soin} est confirmé le {date} à {heure}.\nAcompte de {acompte} bien reçu, il sera déduit du soin.\nÀ très vite chez Ayo Institut, {adresse}."},rap:{on:1,quand:'La veille à 18 h',t:"Bonsoir {prenom}, petit rappel : nous vous attendons demain à {heure} pour votre {soin}.\nPensez à venir sans maquillage pour les soins visage. Un empêchement ? Répondez simplement à ce message."},avis:{on:1,quand:'2 h après le soin',t:"Merci {prenom} pour votre visite ! Comment se sent votre peau ?\nSi vous avez aimé votre {soin}, votre avis Google nous aiderait énormément : il ne prend qu'une minute."}};
+const KEY='ayo-institut-v3';
+let S,BK={},view='site',ptab='agenda',wk0,mode='week',dayFocus=null,openId=null;
+const svc=id=>S.services.find(s=>s.id===id);
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+// occupation : préparation de cabine après chaque soin, trajet avant et après un soin à domicile
+function span(b){return[b.start-(b.lieu==='domicile'?30:0),b.start+b.dur+(b.lieu==='domicile'?30:S.reg.pause)]}
+const ov=(a,b)=>a[0]<b[1]&&b[0]<a[1];
+function busy(date,cab,a,z,ign){return S.bk.some(b=>b.date===date&&b.statut!=='annule'&&b.id!==ign&&(b.cab===cab||b.cab===0||cab===0)&&ov(span(b),[a,z]))||S.blocks.some(k=>k.date===date&&(k.cab===cab||k.cab===0||cab===0)&&ov([k.start,k.end],[a,z]))}
+function freeCab(date,s,lieu,t,ign){const a=t-(lieu==='domicile'?30:0),z=t+s.dur+(lieu==='domicile'?30:S.reg.pause);if(s.duo)return busy(date,0,a,z,ign)?null:0;for(const c of[1,2])if(!busy(date,c,a,z,ign))return c;return null}
+function slots(date,sid,lieu,ign,all){const d=parse(date),h=HOURS[d.getDay()],s=svc(sid);if(!h||!s)return[];const out=[],td=ymd(new Date());if(!all&&date<td)return[];for(let t=h[0];t+s.dur<=h[1];t+=30){if(!all&&date===td&&t<nowMin()+60)continue;const c=freeCab(date,s,lieu,t,ign);if(c!==null)out.push({t,cab:c})}return out}
+function seed(){const r=rng(41),m=monday(new Date()),pick=a=>a[Math.floor(r()*a.length)],now=new Date(),tdS=ymd(now);
+ S={v:3,seed:ymd(m),services:SVC0.map(s=>({...s,actif:1})),bk:[],blocks:[],reg:{pause:15,acompte:20,annul:48},msg:JSON.parse(JSON.stringify(MSG0)),nid:1301,news:0};
+ const W=['ayana','ayana','glass','glow','carboxy','liporf','vacuum','vanille','solo','neroli','regard','precieux','rf1','lipo1','acides','dec-visage','dec-minceur','vlift','fildor','iris','duo'];
+ for(let i=-7;i<21;i++){const d=addD(m,i),ds=ymd(d);if(!HOURS[d.getDay()])continue;const tg=i<7?(d.getDay()===6?8:6):i<14?4:2;let n=0,k=0;
+  while(n<tg&&k<60){k++;const s=svc(pick(W)),lieu=s.dom&&r()<.28?'domicile':'institut',sl=slots(ds,s.id,lieu,null,true);if(!sl.length)continue;const p=pick(sl),c=pick(CL0),src=pick(SRC),past=ds<tdS||(ds===tdS&&p.t+s.dur<now.getHours()*60+now.getMinutes());
+   S.bk.push({id:'R'+S.nid++,sid:s.id,nom:s.nom,cat:s.cat,dur:s.dur,prix:s.prix,date:ds,start:p.t,cab:p.cab,lieu,pre:c[0],fam:c[1],tel:c[2],note:c[3],src,acompte:src==='En ligne'?20:0,statut:past?(r()<.06?'absente':'venue'):(src!=='En ligne'&&r()<.45?'attente':'confirme')});n++}}
+ const bw=addD(m,9);while(!HOURS[bw.getDay()])bw.setDate(bw.getDate()+1);S.blocks.push({id:'B1',date:ymd(bw),start:840,end:960,cab:0,label:'Formation Glass Skin'});
+ save()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}if(!S||S.v!==3||S.seed!==ymd(monday(new Date())))seed()}
+let bc;try{bc=new BroadcastChannel('ayo-institut')}catch(e){}
+function sync(){save();if(bc)bc.postMessage('maj')}
+if(bc)bc.onmessage=()=>{load();renderAll()};
+function toast(m){const t=$('#toast');t.innerHTML=m;t.classList.add('on');clearTimeout(t._);t._=setTimeout(()=>t.classList.remove('on'),2600)}
+// ====== icônes ======
+const IC={ayana:'<svg width="26" height="26" viewBox="0 0 26 26"><path d="M13 22c-5-3-8-6.5-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 21 12c0 3.5-3 7-8 10z" fill="none" stroke="#7c2443" stroke-width="1.6"/></svg>',
+ visage:'<svg width="26" height="26" viewBox="0 0 26 26"><path d="M13 4c4.4 0 7 3.4 7 8 0 5-3.4 10-7 10s-7-5-7-10c0-4.6 2.6-8 7-8z" fill="none" stroke="#b0844f" stroke-width="1.6"/><path d="M10 12.5h.01M16 12.5h.01M10.5 17c1.5 1.2 3.5 1.2 5 0" stroke="#b0844f" stroke-width="1.8" stroke-linecap="round"/></svg>',
+ corps:'<svg width="26" height="26" viewBox="0 0 26 26"><path d="M4 9c3-3 6 3 9 0s6-3 9 0M4 15c3-3 6 3 9 0s6-3 9 0" fill="none" stroke="#5f7a63" stroke-width="1.6" stroke-linecap="round"/></svg>',
+ offres:'<svg width="26" height="26" viewBox="0 0 26 26"><rect x="5" y="10" width="16" height="11" rx="2" fill="none" stroke="#8a5a9c" stroke-width="1.6"/><path d="M4 10h18M13 10v11M13 10c-2-4-6-4-6-1.5S11 10 13 10c2 0 6-.5 6-1.5S15 6 13 10z" fill="none" stroke="#8a5a9c" stroke-width="1.6"/></svg>'};
+const STEPIC=[
+ '<svg width="30" height="30" viewBox="0 0 30 30"><circle cx="9" cy="12" r="2" fill="#7c2443"/><circle cx="16" cy="9" r="1.6" fill="#7c2443"/><circle cx="20" cy="15" r="2.2" fill="#7c2443"/><circle cx="12" cy="18" r="1.5" fill="#7c2443"/><circle cx="18" cy="21" r="1.2" fill="#7c2443"/></svg>',
+ '<svg width="30" height="30" viewBox="0 0 30 30"><path d="M15 5s-7 8-7 13a7 7 0 0 0 14 0c0-5-7-13-7-13z" fill="none" stroke="#7c2443" stroke-width="1.7"/></svg>',
+ '<svg width="30" height="30" viewBox="0 0 30 30"><path d="M12 5h6v4l3 3v12a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V12l3-3z" fill="none" stroke="#7c2443" stroke-width="1.7"/><path d="M10 17h10" stroke="#7c2443" stroke-width="1.7"/></svg>',
+ '<svg width="30" height="30" viewBox="-15 -15 30 30"><g fill="none" stroke="#7c2443" stroke-width="1.4">'+[0,72,144,216,288].map(a=>`<path transform="rotate(${a})" d="M0 0C-4-3-5-10 0-12C5-10 4-3 0 0Z"/>`).join('')+'</g><circle r="1.6" fill="#7c2443"/></svg>'];
+function hibiscus(){let s='';[0,72,144,216,288].forEach(a=>{s+=`<path transform="rotate(${a})" d="M0 0 C -26 -22 -40 -66 -10 -84 C 0 -90 10 -90 20 -82 C 46 -60 26 -22 0 0Z"/><path transform="rotate(${a})" d="M0 -10 C -4 -30 -2 -50 4 -66" opacity=".55"/>`});s+='<path d="M0 0 C 14 -24 30 -40 48 -52" stroke-width="2.6"/>';for(let i=0;i<7;i++){const a=-0.95+i*.09;s+=`<circle cx="${48+Math.cos(a*3)*8}" cy="${-52+Math.sin(a*5)*8}" r="2.4" fill="#7c2443"/>`}return s}
+// ====== site ======
+let cat='tous';
+function renderSite(){const act=S.services.filter(s=>s.actif);
+ $('#nbSoins').textContent=act.length;
+ const ay=svc('ayana');$('#ayPrice').textContent=eur(ay.prix);$('#ayOld').textContent=ay.old?eur(ay.old):'';
+ $('#steps').innerHTML=['iris','neroli','vanille','ayana'].map((id,i)=>{const s=svc(id);return s.actif?`<div class="stp"><div class="ic">${STEPIC[i]}</div><div><h3>${esc(s.nom)}</h3><p>${esc(s.d.split('.')[0])}. ${dur(s.dur)}.</p></div><div class="pr"><b>${eur(s.prix)}</b><button data-book="${s.id}">Réserver</button></div></div>`:''}).join('');
+ $('#cats').innerHTML=[['tous','Tous les soins'],...Object.entries(CATS).map(([k,v])=>[k,v[0]])].map(([k,n])=>`<button data-c="${k}" class="${cat===k?'on':''}">${n}</button>`).join('');
+ $('#cards').innerHTML=act.filter(s=>cat==='tous'||s.cat===cat).map(s=>`<article class="svc">${s.tag?`<span class="flag">${esc(s.tag)}</span>`:''}<div class="top"><span class="cat" style="color:${CATS[s.cat][1]}">${CATS[s.cat][0]}</span><span class="du"><svg width="13" height="13" viewBox="0 0 13 13"><circle cx="6.5" cy="6.5" r="5.3" fill="none" stroke="currentColor"/><path d="M6.5 3.5v3l2 1.4" fill="none" stroke="currentColor"/></svg>${dur(s.dur)}</span></div><h3>${esc(s.nom)}</h3><p>${esc(s.d)}</p>${s.dom?'<span class="dom"><svg width="13" height="13" viewBox="0 0 13 13"><path d="M2 6.5 6.5 2.5 11 6.5V11H2z" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>Aussi à domicile</span>':''}${s.duo?'<span class="dom">Pour deux personnes</span>':''}<div class="bt"><b>${s.cat==='corps'&&s.id==='rf1'?'<small>dès</small>':''}${eur(s.prix)}${s.old?`<s>${eur(s.old)}</s>`:''}</b><button class="btn o sm" data-book="${s.id}">Réserver</button></div></article>`).join('');
+ // prochain créneau
+ let nx='Aucun créneau sous 3 semaines';for(let i=0;i<21;i++){const ds=ymd(addD(new Date(),i)),sl=slots(ds,'glow','institut');if(sl.length){nx=(i===0?"Aujourd'hui":i===1?'Demain':fdate(ds).replace(/^\w/,c=>c.toUpperCase()))+' à '+hm(sl[0].t);break}}$('#nextFree').textContent=nx;
+ $('#rib').innerHTML=Array(2).fill(act.slice(0,10).map(s=>`<span>${esc(s.nom)}</span>`).join('')).join('');
+ // horaires
+ const td=new Date().getDay(),o=[1,2,3,4,5,6,0];$('#hours').innerHTML=o.map(d=>`<tr class="${d===td?'td':''}"><td style="text-transform:capitalize">${JR[d]}</td><td>${HOURS[d]?hm(HOURS[d][0])+' – '+hm(HOURS[d][1]):'Fermé'}</td></tr>`).join('');
+ const h=HOURS[td],n=nowMin(),op=h&&n>=h[0]&&n<h[1];$('#openNow').className='open'+(op?'':' cl');$('#openNow').textContent=op?`Ouvert jusqu'à ${hm(h[1])}`:'Fermé pour le moment';
+ $('#acInfo').textContent=eur(S.reg.acompte);$('#anInfo').textContent=S.reg.annul+' h';
+ gift()}
+$('#cats').onclick=e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;renderSite()}};
+// carte cadeau
+let gSel='ayana';
+function gift(){const G=[['ayana','Rituel Ayana',svc('ayana').prix],['glass','Glass Skin coréen',svc('glass').prix],['v70','Soin visage',70],['m150','Montant libre',150]];
+ $('#gAmts').innerHTML=G.map(([k,n,v])=>`<button data-g="${k}" data-v="${v}" class="${gSel===k?'on':''}">${n}<small>${eur(v)}</small></button>`).join('');
+ const g=G.find(x=>x[0]===gSel)||G[0];$('#gVal').textContent=eur(g[2]);$('#gTxt').textContent=$('#gMsg').value||'Un moment rien que pour toi.';
+ $('#gWho').textContent=`Pour ${$('#gTo').value||'…'} · de la part ${/^[aeiouyéèêàâîïôûh]/i.test($('#gFrom').value)?"d'":'de '}${$('#gFrom').value||'…'}`;return g}
+$('#gAmts').onclick=e=>{const b=e.target.closest('[data-g]');if(b){gSel=b.dataset.g;gift()}};
+['#gTo','#gFrom','#gMsg'].forEach(s=>$(s).oninput=gift);
+$('#gBuy').onclick=()=>{const g=gift();toast(`Carte cadeau de ${eur(g[2])} commandée · envoyée par e-mail à la commande (démonstration)`)};
+$('#gDl').onclick=()=>{const g=gift(),c=$('#gCv'),x=c.getContext('2d'),W=1600,H=1000;const gr=x.createLinearGradient(0,0,W,H);gr.addColorStop(0,'#7c2443');gr.addColorStop(.55,'#a3445f');gr.addColorStop(1,'#d78e95');x.fillStyle=gr;x.fillRect(0,0,W,H);
+ x.save();x.translate(1300,820);x.strokeStyle='rgba(255,255,255,.35)';x.lineWidth=5;for(let i=0;i<5;i++){x.rotate(Math.PI*2/5);x.beginPath();x.moveTo(0,0);x.bezierCurveTo(-130,-110,-200,-330,-50,-420);x.bezierCurveTo(0,-450,50,-450,100,-410);x.bezierCurveTo(230,-300,130,-110,0,0);x.stroke()}x.restore();
+ x.fillStyle='#fbeeee';x.font='600 74px "Cormorant Garamond"';x.fillText('A Y O',90,150);x.font='400 26px Jost';x.fillText('I N S T I T U T  ·  M O N T R E U I L',92,196);
+ x.textAlign='right';x.font='400 30px Jost';x.fillText('CARTE CADEAU',W-90,130);x.font='600 130px "Cormorant Garamond"';x.fillText(eur(g[2]),W-90,260);x.font='400 34px Jost';x.fillText(g[1],W-90,315);
+ x.textAlign='left';x.font='italic 500 72px "Cormorant Garamond"';x.fillText($('#gTxt').textContent,90,780);x.font='400 34px Jost';x.fillText($('#gWho').textContent,92,850);x.font='400 24px Jost';x.globalAlpha=.75;x.fillText('Valable 3 mois · Réservation sur ayo-institut.fr',92,920);x.globalAlpha=1;
+ const a=document.createElement('a');a.download='carte-cadeau-ayo.png';a.href=c.toDataURL('image/png');a.click();toast('Aperçu de la carte cadeau téléchargé')};
+// ====== réservation ======
+function openBk(sid){BK={step:sid?2:1,sid:sid||null,lieu:'institut',date:null,t:null,info:BK.info||{pre:'',fam:'',tel:'',mail:'',note:''},pay:'carte'};if(sid){const s=svc(sid);BK.date=firstDay(s)}showDr('bk');stepBk()}
+function firstDay(s){for(let i=0;i<28;i++){const ds=ymd(addD(new Date(),i));if(slots(ds,s.id,BK.lieu).length)return ds}return ymd(new Date())}
+function showDr(id){$$('.dr').forEach(d=>d.classList.toggle('on',d.id===id));$('#ov').classList.add('on')}
+function closeDr(){$$('.dr').forEach(d=>d.classList.remove('on'));$('#ov').classList.remove('on');openId=null}
+$('#ov').onclick=closeDr;document.addEventListener('click',e=>{if(e.target.closest('[data-close]'))closeDr();const b=e.target.closest('[data-book]');if(b){openBk(b.dataset.book||null)}const w=e.target.closest('[data-wa]');if(w){e.preventDefault();toast("En version finale, ce bouton ouvre la conversation WhatsApp de l'institut")}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDr()});
+function stepBk(){const st=BK.step,s=BK.sid&&svc(BK.sid);$$('#prog span').forEach((x,i)=>x.classList.toggle('on',i<Math.min(st,4)));$('#prog').style.display=st>4?'none':'flex';
+ $('#bkT').textContent=st>4?'Réservation confirmée':'Réserver un soin';
+ const B=$('#bkB'),F=$('#bkF');F.style.display='flex';
+ const sum=s?`<div class="sum"><b>${esc(s.nom)}</b>${dur(s.dur)} · ${eur(s.prix)}${BK.t!=null?' · '+fdate(BK.date)+' à '+hm(BK.t):''}</div>`:'<div class="sum">Choisissez un soin pour continuer</div>';
+ if(st===1){B.innerHTML=Object.entries(CATS).map(([k,v])=>{const L=S.services.filter(x=>x.actif&&x.cat===k);return L.length?`<div class="lbl">${v[0]}</div>`+L.map(x=>`<button class="opt ${BK.sid===x.id?'on':''}" data-s="${x.id}"><b>${esc(x.nom)}</b><small>${dur(x.dur)}${x.dom?' · institut ou domicile':''}${x.duo?' · pour deux':''}</small><span class="pp">${eur(x.prix)}</span></button>`).join(''):''}).join('');
+  F.innerHTML=sum+`<button class="btn p" id="bN" ${BK.sid?'':'disabled'}>Continuer</button>`;
+  B.onclick=e=>{const o=e.target.closest('[data-s]');if(!o)return;BK.sid=o.dataset.s;BK.lieu='institut';BK.t=null;BK.date=firstDay(svc(BK.sid));stepBk()}}
+ if(st===2){const days=[];for(let i=0;i<21;i++){const d=addD(new Date(),i),ds=ymd(d),n=slots(ds,s.id,BK.lieu).length;days.push({ds,d,n})}
+  const sl=slots(BK.date,s.id,BK.lieu),am=sl.filter(x=>x.t<720),pm=sl.filter(x=>x.t>=720);
+  B.innerHTML=(s.dom?`<div class="lbl">Où souhaitez-vous votre soin ?</div><div class="seg"><button data-l="institut" class="${BK.lieu==='institut'?'on':''}">À l'institut<small>12 rue de l'Église, Montreuil</small></button><button data-l="domicile" class="${BK.lieu==='domicile'?'on':''}">À domicile<small>Montreuil et alentours</small></button></div>`:'')+
+  `<div class="lbl">Choisissez le jour</div><div class="days" id="days">${days.map(x=>`<button data-d="${x.ds}" class="${x.ds===BK.date?'on':''}" ${x.n?'':'disabled'}><small>${JR[x.d.getDay()].slice(0,3)}.</small><b>${x.d.getDate()}</b><em>${x.n?x.n+' libres':HOURS[x.d.getDay()]?'complet':'fermé'}</em></button>`).join('')}</div>
+  <div class="lbl">${fdate(BK.date).replace(/^\w/,c=>c.toUpperCase())}${sl.length?` · ${sl.length} créneau${sl.length>1?'x':''} disponible${sl.length>1?'s':''}`:''}</div>${sl.length?(am.length?`<p style="font-size:13px;color:var(--mute);margin-bottom:8px">Matin</p><div class="slots">${am.map(x=>`<button data-t="${x.t}" class="${BK.t===x.t?'on':''}">${hm(x.t)}</button>`).join('')}</div>`:'')+(pm.length?`<p style="font-size:13px;color:var(--mute);margin:14px 0 8px">Après-midi</p><div class="slots">${pm.map(x=>`<button data-t="${x.t}" class="${BK.t===x.t?'on':''}">${hm(x.t)}</button>`).join('')}</div>`:''):'<div class="none">Plus de créneau ce jour-là. Essayez un autre jour.</div>'}
+  ${BK.lieu==='domicile'?'<p class="note"><svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor"/><path d="M7 6v4M7 4h.01" stroke="currentColor" stroke-width="1.4"/></svg>Le temps de trajet de la praticienne est pris en compte automatiquement dans le planning.</p>':''}`;
+  F.innerHTML=sum+`<button class="btn o sm" id="bP">Retour</button><button class="btn p" id="bN" ${BK.t!=null?'':'disabled'}>Continuer</button>`;
+  const ds=$('#days .on');if(ds)ds.scrollIntoView({inline:'center',block:'nearest'});
+  B.onclick=e=>{const l=e.target.closest('[data-l]'),d=e.target.closest('[data-d]'),t=e.target.closest('[data-t]');if(l){BK.lieu=l.dataset.l;BK.t=null;if(!slots(BK.date,s.id,BK.lieu).length)BK.date=firstDay(s);stepBk()}if(d){BK.date=d.dataset.d;BK.t=null;stepBk()}if(t){BK.t=+t.dataset.t;stepBk()}}}
+ if(st===3){const I=BK.info;B.innerHTML=`<div class="lbl">Vos coordonnées</div><div class="gform"><div class="row2"><label class="f" id="fPre">Prénom<input id="iPre" autocomplete="given-name" value="${esc(I.pre)}"><span class="er">Indiquez votre prénom</span></label><label class="f" id="fFam">Nom<input id="iFam" autocomplete="family-name" value="${esc(I.fam)}"><span class="er">Indiquez votre nom</span></label></div>
+  <label class="f" id="fTel">Téléphone mobile<input id="iTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" value="${esc(I.tel)}"><span class="er">10 chiffres, par exemple 06 12 34 56 78</span></label>
+  <label class="f" id="fMail">E-mail<input id="iMail" type="email" autocomplete="email" placeholder="vous@exemple.fr" value="${esc(I.mail)}"><span class="er">Adresse e-mail invalide</span></label>
+  <label class="f">Votre peau, votre routine, une sensibilité ? (facultatif)<textarea id="iNote" rows="3" placeholder="Ex. peau sensible, grossesse, allergie…">${esc(I.note)}</textarea></label>
+  ${BK.lieu==='domicile'?`<label class="f" id="fAdr">Adresse du soin<input id="iAdr" autocomplete="street-address" placeholder="Numéro, rue, ville" value="${esc(I.adr||'')}"><span class="er">Indiquez l'adresse</span></label>`:''}
+  <label class="chk"><input type="checkbox" id="iOk" ${I.ok?'checked':''}>J'accepte les conditions : acompte de ${eur(S.reg.acompte)} déduit du soin, annulation gratuite jusqu'à ${S.reg.annul} h avant le rendez-vous.</label></div>`;
+  F.innerHTML=sum+`<button class="btn o sm" id="bP">Retour</button><button class="btn p" id="bN">Continuer</button>`;B.onclick=null;
+  B.oninput=()=>{Object.assign(I,{pre:$('#iPre').value,fam:$('#iFam').value,tel:$('#iTel').value,mail:$('#iMail').value,note:$('#iNote').value,ok:$('#iOk').checked});if($('#iAdr'))I.adr=$('#iAdr').value}}
+ if(st===4){const ac=S.reg.acompte;B.innerHTML=`<div class="lbl">Récapitulatif</div><div class="recap"><div><span>Soin</span><b>${esc(s.nom)}</b></div><div><span>Date</span><b>${fdate(BK.date)} à ${hm(BK.t)}</b></div><div><span>Durée</span><b>${dur(s.dur)}</b></div><div><span>Lieu</span><b>${BK.lieu==='domicile'?'À domicile':"À l'institut"}</b></div><div><span>Cliente</span><b>${esc(BK.info.pre+' '+BK.info.fam)}</b></div><div><span>Prix du soin</span><b>${eur(s.prix)}</b></div><div><span>Acompte à régler</span><b style="color:var(--wine)">${eur(ac)}</b></div><div><span>Reste à régler sur place</span><b>${eur(s.prix-ac)}</b></div></div>
+  <div class="lbl">Moyen de paiement</div><div class="pay" id="pay"><button data-p="carte" class="${BK.pay==='carte'?'on':''}"><i style="background:#1f3a8a">CB</i>Carte bancaire</button><button data-p="apple" class="${BK.pay==='apple'?'on':''}"><i style="background:#111">Pay</i>Apple Pay ou Google Pay</button></div>
+  <p class="note"><svg width="14" height="14" viewBox="0 0 14 14"><rect x="2.5" y="6" width="9" height="6.5" rx="1.4" fill="none" stroke="currentColor"/><path d="M4.5 6V4.5a2.5 2.5 0 0 1 5 0V6" fill="none" stroke="currentColor"/></svg>Paiement sécurisé par Stripe dans la version en ligne. Ici, démonstration : aucun montant n'est prélevé.</p>`;
+  F.innerHTML=sum+`<button class="btn o sm" id="bP">Retour</button><button class="btn p" id="bN">Payer ${eur(ac)}</button>`;
+  B.onclick=e=>{const p=e.target.closest('[data-p]');if(p){BK.pay=p.dataset.p;stepBk()}}}
+ if(st===5){const b=S.bk.find(x=>x.id===BK.id);B.innerHTML=`<div class="done"><div class="ck"><svg width="34" height="34" viewBox="0 0 34 34"><path d="M8 17.5l6 6 12-13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>À très vite, ${esc(b.pre)}</h4><p>Votre ${esc(b.nom)} est réservé le ${fdate(b.date)} à ${hm(b.start)}. Une confirmation vient d'être envoyée par e-mail et WhatsApp, et un rappel vous sera envoyé la veille.</p></div>
+  <div class="recap"><div><span>Référence</span><b>${b.id}</b></div><div><span>Acompte réglé</span><b>${eur(b.acompte)}</b></div><div><span>Reste sur place</span><b>${eur(b.prix-b.acompte)}</b></div></div>
+  <div class="acts"><button id="ics"><svg width="15" height="15" viewBox="0 0 15 15"><rect x="2" y="3" width="11" height="10" rx="1.6" fill="none" stroke="currentColor"/><path d="M2 6.5h11M5 1.5v3M10 1.5v3" stroke="currentColor"/></svg>Ajouter à mon agenda</button><a href="https://www.google.com/maps/search/?api=1&query=Montreuil+93100" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 15 15"><path d="M7.5 14s4.5-4.2 4.5-7.8a4.5 4.5 0 0 0-9 0C3 9.8 7.5 14 7.5 14z" fill="none" stroke="currentColor"/></svg>Itinéraire</a></div>`;
+  F.innerHTML=`<div class="sum">Vous pouvez fermer cette fenêtre.</div><button class="btn p" data-close>Terminer</button>`;B.onclick=null;$('#ics').onclick=()=>ics(b)}
+ const n=$('#bN'),p=$('#bP');if(p)p.onclick=()=>{BK.step=Math.max(BK.sid?1:1,BK.step-1);stepBk()};if(n)n.onclick=next}
+function next(){if(BK.step===3){const I=BK.info,ok={fPre:I.pre.trim(),fFam:I.fam.trim(),fTel:/^0[1-9]\d{8}$/.test(I.tel.replace(/[\s.]/g,'')),fMail:/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(I.mail.trim())};if($('#iAdr'))ok.fAdr=(I.adr||'').trim().length>5;let g=1;for(const k in ok){$('#'+k).classList.toggle('bad',!ok[k]);if(!ok[k])g=0}if(!g)return;if(!I.ok){toast("Merci d'accepter les conditions de réservation");return}}
+ if(BK.step===4){const n=$('#bN');n.innerHTML='<span class="spin"></span>Paiement…';n.disabled=true;setTimeout(()=>{const s=svc(BK.sid);if(freeCab(BK.date,s,BK.lieu,BK.t)===null){toast('Ce créneau vient d\'être pris. Choisissez-en un autre.');BK.step=2;BK.t=null;stepBk();return}
+  const I=BK.info,b={id:'R'+S.nid++,sid:s.id,nom:s.nom,cat:s.cat,dur:s.dur,prix:s.prix,date:BK.date,start:BK.t,cab:freeCab(BK.date,s,BK.lieu,BK.t),lieu:BK.lieu,pre:I.pre.trim(),fam:I.fam.trim(),tel:I.tel.trim(),mail:I.mail.trim(),note:I.note.trim()+(BK.lieu==='domicile'&&I.adr?(I.note.trim()?' · ':'')+'Adresse : '+I.adr.trim():''),src:'En ligne',acompte:S.reg.acompte,statut:'confirme',nw:1,cree:Date.now()};
+  S.bk.push(b);S.news++;BK.id=b.id;BK.step=5;sync();renderAll();stepBk()},1300);return}
+ BK.step++;stepBk()}
+function ics(b){const d=b.date.replace(/-/g,''),t=x=>pad(Math.floor(x/60))+pad(x%60)+'00';const txt=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ayo Institut//FR','BEGIN:VEVENT','UID:'+b.id+'@ayo-institut','DTSTART:'+d+'T'+t(b.start),'DTEND:'+d+'T'+t(b.start+b.dur),'SUMMARY:'+b.nom+' · Ayo Institut','LOCATION:'+(b.lieu==='domicile'?'À domicile':"12 rue de l'Église, 93100 Montreuil"),'DESCRIPTION:Acompte réglé : '+b.acompte+' €. Reste à régler : '+(b.prix-b.acompte)+' €.','BEGIN:VALARM','TRIGGER:-PT2H','ACTION:DISPLAY','DESCRIPTION:Rendez-vous Ayo Institut','END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/calendar'}));a.download='rendez-vous-ayo.ics';a.click();toast('Rendez-vous ajouté à votre agenda')}
+// ====== espace institut ======
+function curWeek(){const m=monday(new Date());return[0,1,2,3,4,5,6].map(i=>ymd(addD(m,i)))}
+function weekDays(){return[0,1,2,3,4,5,6].map(i=>ymd(addD(wk0,i)))}
+const live=b=>b.statut!=='annule';
+function kpis(){const td=ymd(new Date()),W=curWeek(),T=S.bk.filter(b=>b.date===td&&live(b)&&b.statut!=='absente'),WB=S.bk.filter(b=>W.includes(b.date)&&live(b));
+ let cap=0,used=0;W.forEach(ds=>{const h=HOURS[parse(ds).getDay()];if(h)cap+=(h[1]-h[0])*2});WB.forEach(b=>used+=b.dur*(b.cab===0?2:1));
+ const ac=WB.reduce((a,b)=>a+b.acompte,0),nv=S.bk.filter(b=>b.nw).length;
+ $('#kpis').innerHTML=`<div class="kpi"><span>Rendez-vous aujourd'hui</span><b>${T.length}</b><small>${T.filter(b=>b.start>nowMin()).length} à venir</small></div><div class="kpi"><span>Chiffre prévu aujourd'hui</span><b>${eur(T.reduce((a,b)=>a+b.prix,0))}</b><small>acomptes déduits sur place</small></div><div class="kpi"><span>Remplissage de la semaine</span><b>${cap?Math.round(used/cap*100):0} %</b><small>2 cabines</small></div><div class="kpi"><span>Acomptes encaissés</span><b>${eur(ac)}</b><small>cette semaine</small></div><div class="kpi"><span>Nouvelles réservations</span><b style="color:${nv?'#c0263f':'inherit'}">${nv}</b><small>${nv?'à consulter dans l\'agenda':'tout est à jour'}</small></div>`;
+ $('#badge').textContent=nv;$('#badge').classList.toggle('on',nv>0);
+ const d=new Date();$('#hello').innerHTML=`Bonjour<small>${JR[d.getDay()]} ${d.getDate()} ${MS[d.getMonth()]} · ${T.length} rendez-vous aujourd'hui</small>`}
+const T0=540,T1=1200;
+function agenda(){const mob=innerWidth<760;const W=weekDays(),td=ymd(new Date());let D=W;if(mode==='day'||mob){if(!dayFocus||!W.includes(dayFocus))dayFocus=W.includes(td)?td:W[0];D=[dayFocus]}
+ $$('#vMode button').forEach(b=>b.classList.toggle('on',b.dataset.m===(mob?'day':mode)));
+ const a=parse(W[0]),z=parse(W[6]);$('#wLbl').textContent=(D.length===1?fdate(D[0]).replace(/^\w/,c=>c.toUpperCase()):`Semaine du ${a.getDate()}${a.getMonth()!==z.getMonth()?' '+MS[a.getMonth()]:''} au ${z.getDate()} ${MS[z.getMonth()]}`);
+ const cal=$('#cal');cal.style.setProperty('--n',D.length);
+ let h=`<div class="dh" style="border-left:0"></div>`+D.map(ds=>{const d=parse(ds),n=S.bk.filter(b=>b.date===ds&&live(b)).length;return`<div class="dh ${ds===td?'td':''}" ${D.length>1?`data-day="${ds}" style="cursor:pointer"`:''}><em>${HOURS[d.getDay()]?n+' rdv':''}</em><b>${JR[d.getDay()].slice(0,3).replace(/^\w/,c=>c.toUpperCase())}. ${d.getDate()} ${MC[d.getMonth()]}</b></div>`}).join('');
+ h+=`<div class="tc" style="height:${T1-T0}px">${Array.from({length:(T1-T0)/60},(_,i)=>i?`<div style="top:${i*60}px">${9+i}h</div>`:'').join('')}</div>`;
+ D.forEach(ds=>{const d=parse(ds),hr=HOURS[d.getDay()];h+=`<div class="col ${hr?'':'cl'}" data-col="${ds}" style="height:${T1-T0}px">`;
+  if(!hr){h+='<div class="clt">Fermé</div></div>';return}
+  h+=`<div style="position:absolute;left:0;right:0;top:0;height:${hr[0]-T0}px;background:#f6efec80"></div><div style="position:absolute;left:0;right:0;top:${hr[1]-T0}px;bottom:0;background:#f6efec80"></div><div class="mid"></div>`;
+  S.blocks.filter(k=>k.date===ds).forEach(k=>{const l=k.cab===2?50:0,w=k.cab===0?100:50;h+=`<button class="ev blk" data-blk="${k.id}" style="top:${k.start-T0}px;height:${k.end-k.start}px;left:calc(${l}% + 2px);width:calc(${w}% - 4px)"><b>${esc(k.label)}</b><span>${hm(k.start)} – ${hm(k.end)}</span></button>`});
+  S.bk.filter(b=>b.date===ds&&b.statut!=='annule').forEach(b=>{const l=b.cab===2?50:0,w=b.cab===0?100:50,past=ds<td||(ds===td&&b.start+b.dur<nowMin());
+   h+=`<button class="ev ${past?'past':''} ${b.statut==='attente'?'att':''} ${b.statut==='absente'?'abs':''} ${b.nw?'nw':''}" data-id="${b.id}" style="--c:${CATS[b.cat][1]};top:${b.start-T0}px;height:${Math.max(b.dur-2,22)}px;left:calc(${l}% + 2px);width:calc(${w}% - 4px)" title="${esc(b.pre+' '+b.fam+' · '+b.nom)}">${b.lieu==='domicile'?'<svg class="ic" width="11" height="11" viewBox="0 0 13 13"><path d="M2 6.5 6.5 2.5 11 6.5V11H2z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>':''}<b>${hm(b.start)} · ${esc(b.pre)} ${esc(b.fam[0])}.</b><span>${esc(b.nom)}</span>${b.dur>=60?`<span>${b.acompte?'Acompte '+eur(b.acompte):b.src}</span>`:''}</button>`});
+  if(ds===td&&nowMin()>T0&&nowMin()<T1)h+=`<div class="now" style="top:${nowMin()-T0}px"></div>`;h+='</div>'});
+ cal.innerHTML=h;
+ const w=$('.calw');if(!agenda._s){agenda._s=1;w.scrollTop=Math.max(0,(D.includes(td)?nowMin():600)-T0-120)}}
+$('#cal').onclick=e=>{const ev=e.target.closest('[data-id]'),bl=e.target.closest('[data-blk]'),dh=e.target.closest('[data-day]'),col=e.target.closest('[data-col]');
+ if(ev)return detail(ev.dataset.id);if(bl)return blockDetail(bl.dataset.blk);if(dh){dayFocus=dh.dataset.day;mode='day';return agenda()}
+ if(col&&!col.classList.contains('cl')){const r=col.getBoundingClientRect(),y=e.clientY-r.top,t=Math.floor((y+T0)/30)*30;const hr=HOURS[parse(col.dataset.col).getDay()];if(t<hr[0]||t>=hr[1])return;form({date:col.dataset.col,start:t})}};
+$('#wPrev').onclick=()=>{if(mode==='day'||innerWidth<760){dayFocus=ymd(addD(parse(dayFocus),-1));if(dayFocus<ymd(wk0))wk0=addD(wk0,-7)}else wk0=addD(wk0,-7);renderPro()};
+$('#wNext').onclick=()=>{if(mode==='day'||innerWidth<760){dayFocus=ymd(addD(parse(dayFocus),1));if(dayFocus>ymd(addD(wk0,6)))wk0=addD(wk0,7)}else wk0=addD(wk0,7);renderPro()};
+$('#wToday').onclick=()=>{wk0=monday(new Date());dayFocus=ymd(new Date());agenda._s=0;renderPro()};
+$('#vMode').onclick=e=>{const b=e.target.closest('[data-m]');if(b){mode=b.dataset.m;agenda()}};
+function chip(b){return{confirme:'<span class="chip ok">Confirmé</span>',attente:'<span class="chip w">En attente</span>',venue:'<span class="chip ok">Venue</span>',absente:'<span class="chip ko">Absente</span>',annule:'<span class="chip ko">Annulé</span>'}[b.statut]}
+function fill(t,b){return t.replace(/\{prenom\}/g,b.pre).replace(/\{soin\}/g,b.nom).replace(/\{date\}/g,fdate(b.date)).replace(/\{heure\}/g,hm(b.start)).replace(/\{acompte\}/g,eur(b.acompte||S.reg.acompte)).replace(/\{adresse\}/g,"12 rue de l'Église, Montreuil")}
+function detail(id){const b=S.bk.find(x=>x.id===id);if(!b)return;openId=id;if(b.nw){delete b.nw;S.news=Math.max(0,S.news-1);sync();kpis();agenda()}
+ const vis=S.bk.filter(x=>x.tel===b.tel&&x.statut==='venue').length;
+ $('#pdT').textContent=b.pre+' '+b.fam;$('#pdF').style.display='none';
+ $('#pdB').innerHTML=`<h4>${esc(b.nom)}</h4><div class="chips">${chip(b)}<span class="chip">${b.src}</span><span class="chip">${b.lieu==='domicile'?'À domicile':'Cabine '+(b.cab||'1 et 2')}</span>${vis>=3?'<span class="chip n">Cliente fidèle</span>':vis===0?'<span class="chip n">Nouvelle cliente</span>':''}</div>
+ <dl class="dl"><dt>Date</dt><dd>${fdate(b.date)}</dd><dt>Horaire</dt><dd>${hm(b.start)} – ${hm(b.start+b.dur)} (${dur(b.dur)})</dd><dt>Prix</dt><dd>${eur(b.prix)}</dd><dt>Acompte</dt><dd>${b.acompte?eur(b.acompte)+' payé en ligne':'aucun'}</dd><dt>Reste à encaisser</dt><dd><b>${eur(b.prix-b.acompte)}</b></dd><dt>Téléphone</dt><dd><a href="tel:${b.tel.replace(/\s/g,'')}">${b.tel}</a></dd><dt>Visites</dt><dd>${vis} soin${vis>1?'s':''} réalisé${vis>1?'s':''}</dd>${b.note?`<dt>Note peau</dt><dd style="color:var(--wine)">${esc(b.note)}</dd>`:''}</dl>
+ <div class="pbtns">${b.statut==='attente'?'<button data-a="conf"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Confirmer le rendez-vous</button>':''}
+ <button data-a="rap"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 1.8a6.2 6.2 0 0 0-5.4 9.3L1.8 14.2l3.2-.8A6.2 6.2 0 1 0 8 1.8z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Envoyer le rappel WhatsApp</button>
+ ${b.statut!=='venue'?'<button data-a="venue"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 8.2l1.8 1.8 3.4-3.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>Marquer comme venue et encaisser</button>':''}
+ <button data-a="move"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.4"/></svg>Déplacer le rendez-vous</button>
+ ${b.statut!=='absente'?'<button data-a="abs"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5.5 5.5l5 5" stroke="currentColor" stroke-width="1.4"/></svg>Signaler une absence</button>':''}
+ <button data-a="ann" class="dan"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="1.5"/></svg>Annuler et libérer le créneau</button></div>`;
+ $('#pdB').onclick=e=>{const a=e.target.closest('[data-a]');if(!a)return;const k=a.dataset.a;
+  if(k==='conf'){b.statut='confirme';toast('Rendez-vous confirmé · message envoyé à '+b.pre)}
+  if(k==='rap'){toast(`Rappel envoyé à ${b.pre} sur WhatsApp`);return}
+  if(k==='venue'){b.statut='venue';toast(`${eur(b.prix-b.acompte)} encaissés · demande d'avis programmée dans 2 h`)}
+  if(k==='abs'){b.statut='absente';toast(b.acompte?`Absence notée · acompte de ${eur(b.acompte)} conservé`:'Absence notée')}
+  if(k==='ann'){b.statut='annule';toast('Rendez-vous annulé · le créneau est de nouveau réservable en ligne')}
+  if(k==='move')return form(b);
+  sync();renderAll();if(k!=='ann')detail(id);else closeDr()};
+ showDr('pd')}
+function blockDetail(id){const k=S.blocks.find(x=>x.id===id);$('#pdT').textContent='Créneau bloqué';$('#pdF').style.display='none';
+ $('#pdB').innerHTML=`<h4>${esc(k.label)}</h4><dl class="dl" style="margin-top:14px"><dt>Date</dt><dd>${fdate(k.date)}</dd><dt>Horaire</dt><dd>${hm(k.start)} – ${hm(k.end)}</dd><dt>Cabines</dt><dd>${k.cab?'Cabine '+k.cab:'Les deux'}</dd></dl><p style="color:var(--mute);font-size:14px;margin-bottom:16px">Aucune cliente ne peut réserver sur ce créneau en ligne.</p><div class="pbtns"><button data-x class="dan">Débloquer le créneau</button></div>`;
+ $('#pdB').onclick=e=>{if(e.target.closest('[data-x]')){S.blocks=S.blocks.filter(x=>x.id!==id);sync();renderAll();closeDr();toast('Créneau débloqué')}};showDr('pd')}
+// formulaire de rendez-vous (téléphone, Instagram, sur place) ou déplacement
+function form(b0){const edit=b0&&b0.id,cl=uniqClients();const f={sid:edit?b0.sid:'glow',date:b0&&b0.date||dayFocus||ymd(new Date()),start:b0&&b0.start!=null?b0.start:600,lieu:edit?b0.lieu:'institut',pre:edit?b0.pre:'',fam:edit?b0.fam:'',tel:edit?b0.tel:'',src:edit?b0.src:'Téléphone',note:edit?b0.note:''};
+ $('#pdT').textContent=edit?'Déplacer le rendez-vous':'Nouveau rendez-vous';
+ const opts=Object.entries(CATS).map(([k,v])=>`<optgroup label="${v[0]}">${S.services.filter(s=>s.cat===k).map(s=>`<option value="${s.id}">${esc(s.nom)} · ${dur(s.dur)} · ${eur(s.prix)}</option>`).join('')}</optgroup>`).join('');
+ const hrs=[];for(let t=540;t<1170;t+=15)hrs.push(t);
+ $('#pdB').innerHTML=`<div class="gform"><label class="f">Cliente<input id="nCl" list="clList" placeholder="Rechercher ou saisir une nouvelle cliente" value="${esc((f.pre+' '+f.fam).trim())}" ${edit?'disabled':''}><datalist id="clList">${cl.map(c=>`<option value="${esc(c.pre+' '+c.fam)}">${c.tel}</option>`).join('')}</datalist></label>
+ <label class="f">Téléphone<input id="nTel" value="${esc(f.tel)}" placeholder="06 12 34 56 78" ${edit?'disabled':''}></label>
+ <label class="f">Soin<select id="nSv" ${edit?'disabled':''}>${opts}</select></label>
+ <div class="row2"><label class="f">Date<input type="date" id="nD" value="${f.date}"></label><label class="f">Heure<select id="nH">${hrs.map(t=>`<option value="${t}" ${t===f.start?'selected':''}>${hm(t)}</option>`).join('')}</select></label></div>
+ <div class="row2"><label class="f">Lieu<select id="nL"><option value="institut">À l'institut</option><option value="domicile">À domicile</option></select></label><label class="f">Pris par<select id="nSrc" ${edit?'disabled':''}>${['Téléphone','Instagram','WhatsApp','Sur place','En ligne'].map(x=>`<option ${x===f.src?'selected':''}>${x}</option>`).join('')}</select></label></div>
+ <div id="nHint"></div>
+ <label class="f">Note (peau, allergie, préférence)<textarea id="nNote" rows="2">${esc(f.note)}</textarea></label></div>`;
+ if(!edit&&!(b0&&b0.start!=null)){const sl=slots(f.date,f.sid,'institut',null,true);if(sl.length)f.start=sl[0].t}
+ $('#nSv').value=f.sid;$('#nL').value=f.lieu;$('#nH').value=f.start;
+ $('#pdF').style.display='flex';$('#pdF').innerHTML=`<div class="sum" id="nSum"></div><button class="btn p" id="nGo">${edit?'Déplacer':'Enregistrer'}</button>`;
+ const chk=()=>{const s=svc($('#nSv').value),date=$('#nD').value,t=+$('#nH').value,l=$('#nL').value,hr=HOURS[parse(date).getDay()];let c=null,msg='';
+  if(l==='domicile'&&!s.dom)msg='Ce soin se fait uniquement à l\'institut.';else if(!hr)msg="L'institut est fermé ce jour-là.";else if(t<hr[0]||t+s.dur>hr[1])msg=`En dehors des horaires (${hm(hr[0])} – ${hm(hr[1])}).`;else{c=freeCab(date,s,l,t,edit?b0.id:null);if(c===null)msg='Ce créneau chevauche un autre rendez-vous.'}
+  let alt='';if(msg){const sl=slots(date,s.id,l,edit?b0.id:null,true).filter(x=>x.t>=t);if(sl.length)alt=` <button data-alt="${sl[0].t}">Prochain créneau libre : ${hm(sl[0].t)}</button>`}
+  $('#nHint').innerHTML=msg?`<div class="hint ko">${msg}${alt}</div>`:`<div class="hint ok">Libre ${s.duo?'dans les deux cabines':'en cabine '+c} · fin à ${hm(t+s.dur)}${l==='domicile'?' · trajet compté':''}</div>`;
+  $('#nSum').innerHTML=`<b>${esc(s.nom)}</b>${dur(s.dur)} · ${eur(s.prix)}`;$('#nGo').disabled=!!msg;return{s,date,t,l,c}};
+ $('#pdB').oninput=e=>{if(e.target.id==='nCl'){const c=cl.find(x=>(x.pre+' '+x.fam)===e.target.value);if(c){$('#nTel').value=c.tel;$('#nNote').value=c.note||''}}chk()};
+ $('#pdB').onclick=e=>{const a=e.target.closest('[data-alt]');if(a){$('#nH').value=a.dataset.alt;chk()}};
+ $('#nGo').onclick=()=>{const r=chk();if($('#nGo').disabled)return;
+  if(edit){Object.assign(b0,{date:r.date,start:r.t,lieu:r.l,cab:r.c,note:$('#nNote').value});toast(`Rendez-vous déplacé au ${fdate(r.date)} à ${hm(r.t)} · ${b0.pre} est prévenue`)}
+  else{const nm=$('#nCl').value.trim().split(/\s+/);if(!nm[0]){toast('Indiquez le nom de la cliente');return}S.bk.push({id:'R'+S.nid++,sid:r.s.id,nom:r.s.nom,cat:r.s.cat,dur:r.s.dur,prix:r.s.prix,date:r.date,start:r.t,cab:r.c,lieu:r.l,pre:nm[0],fam:nm.slice(1).join(' ')||'',tel:$('#nTel').value.trim()||'—',note:$('#nNote').value.trim(),src:$('#nSrc').value,acompte:0,statut:'confirme'});toast('Rendez-vous ajouté · le créneau est retiré du site')}
+  const d=parse(r.date);wk0=monday(d);dayFocus=r.date;sync();renderAll();closeDr()};
+ chk();showDr('pd')}
+$('#pNew').onclick=()=>{ptabGo('agenda');form(null)};
+$('#pBlock').onclick=()=>{ptabGo('agenda');$('#pdT').textContent='Bloquer un créneau';const hrs=[];for(let t=540;t<=1170;t+=30)hrs.push(t);
+ $('#pdB').innerHTML=`<div class="gform"><label class="f">Motif<input id="kL" value="Pause, rendez-vous fournisseur…"></label><label class="f">Date<input type="date" id="kD" value="${dayFocus||ymd(new Date())}"></label><div class="row2"><label class="f">De<select id="kA">${hrs.map(t=>`<option value="${t}" ${t===720?'selected':''}>${hm(t)}</option>`).join('')}</select></label><label class="f">À<select id="kZ">${hrs.map(t=>`<option value="${t}" ${t===780?'selected':''}>${hm(t)}</option>`).join('')}</select></label></div><label class="f">Cabine<select id="kC"><option value="0">Les deux</option><option value="1">Cabine 1</option><option value="2">Cabine 2</option></select></label></div>`;
+ $('#pdF').style.display='flex';$('#pdF').innerHTML='<div class="sum">Les clientes ne verront plus ces horaires.</div><button class="btn p" id="kGo">Bloquer</button>';
+ $('#kGo').onclick=()=>{const a=+$('#kA').value,z=+$('#kZ').value;if(z<=a){toast("L'heure de fin doit suivre l'heure de début");return}S.blocks.push({id:'B'+Date.now(),date:$('#kD').value,start:a,end:z,cab:+$('#kC').value,label:$('#kL').value||'Indisponible'});wk0=monday(parse($('#kD').value));sync();renderAll();closeDr();toast('Créneau bloqué')};showDr('pd')};
+function uniqClients(){const M={};S.bk.forEach(b=>{if(!b.tel||b.tel==='—')return;const k=b.tel;const c=M[k]||(M[k]={pre:b.pre,fam:b.fam,tel:b.tel,note:'',L:[]});c.L.push(b);if(b.note)c.note=b.note});return Object.values(M)}
+let q='';
+function clientes(){const td=ymd(new Date()),L=uniqClients().map(c=>{const v=c.L.filter(b=>b.statut==='venue').sort((a,b)=>(b.date+pad(b.start)).localeCompare(a.date+pad(a.start))),nx=c.L.filter(b=>b.statut!=='annule'&&b.statut!=='venue'&&b.statut!=='absente'&&b.date>=td).sort((a,b)=>(a.date+pad(a.start)).localeCompare(b.date+pad(b.start)))[0];return{...c,v,nx,tot:v.reduce((a,b)=>a+b.prix,0)}}).filter(c=>!q||(c.pre+' '+c.fam+' '+c.tel).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>b.tot-a.tot);
+ $('#pp-clientes').innerHTML=`<div class="tb"><span class="ttl" style="margin:0">${L.length} clientes</span><input class="srch" id="cq" placeholder="Rechercher par nom ou téléphone" value="${esc(q)}" style="margin-left:auto"></div><div style="overflow-x:auto"><table class="t"><thead><tr><th>Cliente</th><th class="hm">Téléphone</th><th>Soins</th><th class="hm">Dernier soin</th><th>Total</th><th>Prochain rendez-vous</th></tr></thead><tbody>${L.map(c=>`<tr class="cl" data-tel="${esc(c.tel)}"><td><span class="av">${esc(c.pre[0]+(c.fam[0]||''))}</span>${esc(c.pre+' '+c.fam)}</td><td class="hm">${c.tel}</td><td>${c.v.length}</td><td class="hm">${c.v[0]?esc(c.v[0].nom):'—'}</td><td>${eur(c.tot)}</td><td>${c.nx?fdate(c.nx.date)+' · '+hm(c.nx.start):'<span style="color:var(--mute)">à relancer</span>'}</td></tr>`).join('')}</tbody></table></div>`;
+ const i=$('#cq');i.oninput=()=>{q=i.value;clientes();const j=$('#cq');j.focus();j.setSelectionRange(q.length,q.length)}}
+$('#pp-clientes').onclick=e=>{const r=e.target.closest('[data-tel]');if(!r)return;const c=uniqClients().find(x=>x.tel===r.dataset.tel),H=c.L.slice().sort((a,b)=>(b.date+pad(b.start)).localeCompare(a.date+pad(a.start)));
+ $('#pdT').textContent=c.pre+' '+c.fam;$('#pdF').style.display='none';
+ $('#pdB').innerHTML=`<div class="chips"><span class="chip">${c.tel}</span><span class="chip ok">${H.filter(b=>b.statut==='venue').length} soins</span></div>${c.note?`<p style="color:var(--wine);margin-bottom:14px">${esc(c.note)}</p>`:''}<div class="lbl">Historique</div><table class="t"><tbody>${H.map(b=>`<tr><td>${fdate(b.date)}<br><small style="color:var(--mute)">${hm(b.start)}</small></td><td>${esc(b.nom)}</td><td>${chip(b)}</td></tr>`).join('')}</tbody></table><div class="pbtns" style="margin-top:16px"><button id="cNew">Nouveau rendez-vous pour elle</button><button id="cWa">Lui écrire sur WhatsApp</button></div>`;
+ $('#cNew').onclick=()=>form({pre:c.pre,fam:c.fam,tel:c.tel,note:c.note,date:ymd(new Date())});$('#cWa').onclick=()=>toast(`Conversation WhatsApp ouverte avec ${c.pre} (démonstration)`);showDr('pd')};
+function carte(){$('#pp-carte').innerHTML=`<div class="tb"><span class="ttl" style="margin:0">Votre carte, en direct sur le site</span><button class="sbtn" id="seeSite" style="margin-left:auto">Voir le site des clientes</button></div><p style="color:var(--mute);font-size:14px;margin-bottom:6px">Modifiez un prix, une durée, ou masquez un soin : le site et les créneaux proposés se mettent à jour immédiatement.</p>`+
+ Object.entries(CATS).map(([k,v])=>`<div class="cgh">${v[0]}</div><div style="overflow-x:auto"><table class="t"><thead><tr><th>Soin</th><th>Durée</th><th>Prix</th><th class="hm">Prix barré</th><th>En ligne</th></tr></thead><tbody>${S.services.filter(s=>s.cat===k).map(s=>`<tr data-sid="${s.id}"><td>${esc(s.nom)}</td><td><select data-k="dur">${[30,45,60,75,80,90,105,120].map(m=>`<option value="${m}" ${m===s.dur?'selected':''}>${dur(m)}</option>`).join('')}</select></td><td><input type="number" data-k="prix" min="0" step="1" value="${s.prix}"> €</td><td class="hm"><input type="number" data-k="old" min="0" step="1" value="${s.old||''}" placeholder="—"> €</td><td><button class="tg ${s.actif?'on':''}" data-k="actif" aria-label="Afficher en ligne"></button></td></tr>`).join('')}</tbody></table></div>`).join('')+
+ `<div class="cgh">Règles de réservation</div><div class="row2" style="max-width:640px;grid-template-columns:repeat(3,1fr)"><label class="f">Acompte en ligne<input type="number" data-r="acompte" value="${S.reg.acompte}" min="0"></label><label class="f">Pause entre deux soins (min)<input type="number" data-r="pause" value="${S.reg.pause}" min="0" step="5"></label><label class="f">Annulation gratuite (h)<input type="number" data-r="annul" value="${S.reg.annul}" min="0"></label></div>`;
+ $('#seeSite').onclick=()=>{setView('site');location.hash='soins';document.getElementById('soins').scrollIntoView()}}
+$('#pp-carte').addEventListener('change',e=>{const r=e.target.closest('[data-sid]'),k=e.target.dataset.k,rg=e.target.dataset.r;if(rg){S.reg[rg]=Math.max(0,+e.target.value||0);sync();renderAll();toast('Règle mise à jour sur le site');return}if(!r||!k)return;const s=svc(r.dataset.sid);if(k==='prix')s.prix=Math.max(0,+e.target.value||0);if(k==='dur')s.dur=+e.target.value;if(k==='old')s.old=+e.target.value||0;sync();renderSite();kpis();toast(`${esc(s.nom)} : ${eur(s.prix)} · ${dur(s.dur)} · en ligne`)});
+$('#pp-carte').addEventListener('click',e=>{const t=e.target.closest('.tg');if(!t)return;const s=svc(t.closest('[data-sid]').dataset.sid);s.actif=s.actif?0:1;t.classList.toggle('on',!!s.actif);sync();renderSite();toast(s.actif?`${esc(s.nom)} est de nouveau réservable`:`${esc(s.nom)} est masqué du site`)});
+function messages(){const td=ymd(new Date()),nb=S.bk.filter(b=>b.statut!=='annule'&&(b.date>td||(b.date===td&&b.start>nowMin()))).sort((a,b)=>(a.date+pad(a.start)).localeCompare(b.date+pad(b.start)))[0]||S.bk[0];
+ const L=[['conf','Confirmation de réservation','Envoyée dès qu\'une cliente réserve ou que vous ajoutez un rendez-vous'],['rap','Rappel avant le soin','Réduit fortement les oublis et les absences'],['avis','Demande d\'avis Google','Envoyée après le passage de la cliente en « venue »']];
+ const demain=ymd(addD(new Date(),1)),R=S.bk.filter(b=>b.date===demain&&live(b));
+ $('#pp-messages').innerHTML=`<div class="msgs"><div><p style="color:var(--mute);font-size:14px;margin-bottom:14px">Les messages partent tout seuls, par WhatsApp, SMS ou e-mail, avec les informations du rendez-vous. Vous écrivez le modèle une fois.</p>${L.map(([k,n,d])=>{const m=S.msg[k];return`<div class="mc" data-m="${k}"><div class="h"><b>${n}<small>${d}</small></b><select data-q>${['À la réservation','La veille à 18 h','Le matin même à 9 h','2 h avant le soin','2 h après le soin','Le lendemain'].map(x=>`<option ${x===m.quand?'selected':''}>${x}</option>`).join('')}</select><button class="tg ${m.on?'on':''}" data-on aria-label="Activer"></button></div><textarea data-t>${esc(m.t)}</textarea><div class="vars">${['{prenom}','{soin}','{date}','{heure}','{acompte}','{adresse}'].map(v=>`<button data-v="${v}">${v}</button>`).join('')}</div></div>`}).join('')}
+ <div class="log"><div class="ttl" style="font-size:19px">Envois programmés</div>${R.slice(0,5).map(b=>`<div><span>Ce soir 18 h</span>Rappel à ${esc(b.pre)} ${esc(b.fam[0])}. pour ${esc(b.nom)} à ${hm(b.start)}</div>`).join('')||'<div><span>—</span>Aucun rendez-vous demain</div>'}</div></div>
+ <div><div class="phone"><div class="wh"><i>A</i><div>Ayo Institut<br><small style="opacity:.75;font-size:11.5px">Aperçu pour ${esc(nb.pre)} · ${esc(nb.nom)}</small></div></div><div class="th" id="prev"></div></div></div></div>`;prev(nb)}
+function prev(b){if(!$('#prev'))return;$('#prev').innerHTML='<div class="bub lab">Aujourd\'hui</div>'+['conf','rap','avis'].filter(k=>S.msg[k].on).map(k=>`<div class="bub">${esc(fill(S.msg[k].t,b))}<small>${S.msg[k].quand}</small></div>`).join('')}
+$('#pp-messages').addEventListener('input',e=>{const c=e.target.closest('[data-m]');if(!c)return;const m=S.msg[c.dataset.m];if(e.target.matches('[data-t]'))m.t=e.target.value;if(e.target.matches('[data-q]'))m.quand=e.target.value;save();prev(nextB())});
+$('#pp-messages').addEventListener('change',e=>{if(e.target.matches('[data-q]'))toast('Horaire d\'envoi mis à jour')});
+$('#pp-messages').addEventListener('click',e=>{const c=e.target.closest('[data-m]');if(!c)return;const m=S.msg[c.dataset.m];if(e.target.closest('[data-on]')){m.on=m.on?0:1;e.target.closest('[data-on]').classList.toggle('on',!!m.on);save();prev(nextB());toast(m.on?'Envoi automatique activé':'Envoi automatique en pause')}const v=e.target.closest('[data-v]');if(v){const ta=c.querySelector('textarea'),p=ta.selectionStart;ta.value=ta.value.slice(0,p)+v.dataset.v+ta.value.slice(ta.selectionEnd);m.t=ta.value;save();prev(nextB());ta.focus()}});
+function nextB(){const td=ymd(new Date());return S.bk.filter(b=>b.statut!=='annule'&&(b.date>td||(b.date===td&&b.start>nowMin()))).sort((a,b)=>(a.date+pad(a.start)).localeCompare(b.date+pad(b.start)))[0]||S.bk[0]}
+function stats(){const W=curWeek(),td=ymd(new Date()),WB=S.bk.filter(b=>W.includes(b.date)&&live(b)&&b.statut!=='absente');
+ const real=WB.filter(b=>b.statut==='venue').reduce((a,b)=>a+b.prix,0),prevu=WB.filter(b=>b.statut!=='venue').reduce((a,b)=>a+b.prix,0);
+ const perDay=W.map(ds=>({ds,v:WB.filter(b=>b.date===ds).reduce((a,b)=>a+b.prix,0)})),mx=Math.max(...perDay.map(x=>x.v),1);
+ const M30=S.bk.filter(b=>live(b)&&b.statut!=='absente'),T={};M30.forEach(b=>T[b.nom]=(T[b.nom]||0)+1);const top=Object.entries(T).sort((a,b)=>b[1]-a[1]).slice(0,6),tm=top[0]?top[0][1]:1;
+ const SR={};M30.forEach(b=>SR[b.src]=(SR[b.src]||0)+1);const srt=Object.entries(SR).sort((a,b)=>b[1]-a[1]),sm=M30.length||1;
+ const abs=S.bk.filter(b=>b.statut==='absente').length,ven=S.bk.filter(b=>b.statut==='venue').length;
+ $('#pp-stats').innerHTML=`<div class="kpis" style="padding:0 0 18px;grid-template-columns:repeat(4,1fr)"><div class="kpi"><span>Chiffre réalisé cette semaine</span><b>${eur(real)}</b></div><div class="kpi"><span>Encore prévu cette semaine</span><b>${eur(prevu)}</b></div><div class="kpi"><span>Panier moyen</span><b>${eur(WB.length?Math.round((real+prevu)/WB.length):0)}</b></div><div class="kpi"><span>Taux d'absence</span><b>${ven+abs?Math.round(abs/(ven+abs)*100):0} %</b><small>les rappels automatiques le font baisser</small></div></div>
+ <div class="st2"><div><div class="ttl">Chiffre d'affaires par jour</div><div class="vb">${perDay.map(x=>{const d=parse(x.ds);return`<div><i class="${x.ds>td?'fu':''}" style="height:${x.v/mx*170}px">${x.v?`<em>${eur(x.v)}</em>`:''}</i>${JR[d.getDay()].slice(0,3)}. ${d.getDate()}</div>`}).join('')}</div><p style="font-size:12.5px;color:var(--mute);margin-top:8px">Hachuré : rendez-vous à venir, pas encore encaissés.</p></div>
+ <div><div class="ttl">Soins les plus réservés</div><div class="bars">${top.map(([n,v])=>`<div class="br"><span>${esc(n)}</span><u><i style="width:${v/tm*100}%"></i></u><b>${v}</b></div>`).join('')}</div>
+ <div class="ttl" style="margin-top:22px">D'où viennent les réservations</div><div class="bars">${srt.map(([n,v])=>`<div class="br"><span>${n}</span><u><i style="width:${v/sm*100}%;background:#a3445f"></i></u><b>${Math.round(v/sm*100)} %</b></div>`).join('')}</div></div></div>`}
+function ptabGo(t){ptab=t;$$('#ptabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));$$('.pp').forEach(p=>p.classList.toggle('on',p.id==='pp-'+t));renderPro()}
+$('#ptabs').onclick=e=>{const b=e.target.closest('[data-t]');if(b)ptabGo(b.dataset.t)};
+function renderPro(){kpis();if(ptab==='agenda')agenda();if(ptab==='clientes')clientes();if(ptab==='carte')carte();if(ptab==='messages')messages();if(ptab==='stats')stats()}
+function renderAll(){renderSite();renderPro()}
+function setView(v){view=v;$$('.demo .sw button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));$('#site').classList.toggle('on',v==='site');$('#pro').classList.toggle('on',v==='pro');closeDr();if(v==='pro'){agenda._s=0;renderPro()}scrollTo(0,0);history.replaceState(null,'',v==='pro'?'#espace-institut':location.pathname)}
+$('.demo .sw').onclick=e=>{const b=e.target.closest('[data-v]');if(b)setView(b.dataset.v)};
+$('#reset').onclick=()=>{seed();wk0=monday(new Date());dayFocus=null;renderAll();toast('Démonstration réinitialisée')};
+addEventListener('scroll',()=>$('#nav').classList.toggle('sc',scrollY>20),{passive:true});
+let rz;addEventListener('resize',()=>{clearTimeout(rz);rz=setTimeout(()=>{if(view==='pro'&&ptab==='agenda')agenda()},150)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+// init
+load();wk0=monday(new Date());
+$('#hib').innerHTML=hibiscus();$('#hib').setAttribute('transform','translate(260 230) scale(1.55)');$('#hib2').innerHTML=hibiscus();
+renderAll();$$('.rv').forEach(x=>io.observe(x));
+if(location.hash==='#espace-institut')setView('pro');
+setInterval(()=>{if(view==='pro'&&ptab==='agenda')agenda()},60000);
+// pilotage du spot
+window.__view=setView;window.__book=openBk;window.__day=i=>{const b=$$('#days button:not(:disabled)')[i];if(b)b.click()};window.__slot=i=>{const b=$$('.slots button')[i];if(b)b.click()};
+window.__next=()=>$('#bN')&&$('#bN').click();
+window.__fill=async(p,f,t,m,n)=>{const ty=async(id,v)=>{const el=$(id);for(let i=1;i<=v.length;i++){el.value=v.slice(0,i);el.dispatchEvent(new Event('input',{bubbles:true}));await new Promise(r=>setTimeout(r,28))}};await ty('#iPre',p);await ty('#iFam',f);await ty('#iTel',t);await ty('#iMail',m);await ty('#iNote',n);$('#iOk').checked=true;$('#iOk').dispatchEvent(new Event('input',{bubbles:true}))};
+window.__ptab=ptabGo;window.__open=id=>detail(id==='last'?S.bk[S.bk.length-1].id:id);window.__close=closeDr;window.__go=id=>document.getElementById(id).scrollIntoView({behavior:'smooth'});
+window.__price=(id,v)=>{const s=svc(id);s.prix=v;sync();renderAll();toast(`${s.nom} : ${eur(v)} · en ligne`)};
+window.__focusLast=()=>{const b=S.bk[S.bk.length-1];wk0=monday(parse(b.date));dayFocus=b.date;agenda._s=0;agenda();const el=$(`[data-id="${b.id}"]`);if(el)el.scrollIntoView({block:'center',behavior:'smooth'})};
+</script>
+</body>
+</html>

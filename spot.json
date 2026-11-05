@@ -1,0 +1,27 @@
+{
+ "titre": "<em>Ayo</em>, institut de beauté",
+ "type": "Plateforme de réservation · institut de beauté",
+ "sous_titre": "Carte des soins, réservation avec acompte, agenda à deux cabines organisé tout seul",
+ "couleur": "#7c2443",
+ "graine": 41,
+ "voix": [
+  [2.6, "Ayo, une plateforme pour institut de beauté : la cliente choisit son soin et réserve un créneau libre en quelques secondes,"],
+  [10.4, "le rendez-vous arrive aussitôt dans l'agenda de l'institut, rangé dans la bonne cabine,"],
+  [16.2, "et les rappels, les tarifs et les statistiques se gèrent au même endroit."]
+ ],
+ "etapes": [
+  {"t": "wait", "ms": 1500},
+  {"t": "eval", "js": "window.__book('glass')", "pause": 1300},
+  {"t": "eval", "js": "window.__day(1)", "pause": 800},
+  {"t": "eval", "js": "window.__slot(2)", "pause": 800},
+  {"t": "eval", "js": "window.__next()", "pause": 500},
+  {"t": "eval", "js": "window.__fill('Inès','Lambert','06 20 75 38 91','ines@exemple.fr','Peau sensible')", "pause": 2400},
+  {"t": "eval", "js": "window.__next()", "pause": 1100},
+  {"t": "eval", "js": "window.__next()", "pause": 2100},
+  {"t": "eval", "js": "window.__close();window.__view('pro')", "pause": 1500},
+  {"t": "eval", "js": "window.__focusLast()", "pause": 1300},
+  {"t": "eval", "js": "window.__open('last')", "pause": 2000},
+  {"t": "eval", "js": "window.__close();window.__ptab('messages')", "pause": 1800},
+  {"t": "eval", "js": "window.__ptab('stats')", "pause": 1900}
+ ]
+}

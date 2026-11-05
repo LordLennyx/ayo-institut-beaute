@@ -1,0 +1,33 @@
+# Ayo Institut
+
+**Plateforme de réservation pour institut de beauté** — Plateforme complète pour un institut de beauté : un site élégant qui présente la carte des soins et permet aux clientes de réserver en quelques secondes avec acompte, et un espace institut où les rendez-vous se rangent tout seuls dans un agenda à deux cabines. Les créneaux proposés en ligne tiennent compte des horaires, de la durée de chaque soin, de la pause entre deux clientes et du trajet pour les soins à domicile. Tarifs, messages automatiques et statistiques se gèrent au même endroit, et chaque modification apparaît aussitôt sur le site.
+
+**Démo en ligne : [https://lordlennyx.github.io/ayo-institut-beaute/](https://lordlennyx.github.io/ayo-institut-beaute/)**
+
+Spot de présentation (30 s) : [media/spot-30s.mp4](https://lordlennyx.github.io/ayo-institut-beaute/media/spot-30s.mp4)
+
+![Aperçu bureau](media/capture-bureau.png)
+
+## Ce que le projet montre
+
+- Site des clientes : rituel signature, carte des soins par catégorie, offres et packs, horaires avec « ouvert maintenant », plan et contact WhatsApp
+- Réservation en quatre étapes : soin, institut ou domicile, jour et créneau libre, coordonnées vérifiées, acompte en ligne, confirmation et ajout à l'agenda du téléphone (.ics)
+- Moteur de créneaux : horaires par jour, deux cabines, pause entre deux soins, trajet compté pour le domicile, pack duo qui réserve les deux cabines
+- Agenda de l'institut en semaine ou en jour, couleur par catégorie, ligne de l'heure, nouvelles réservations signalées, ajout d'un rendez-vous pris par téléphone avec détection des conflits et prochain créneau libre, blocage de créneaux
+- Fiche rendez-vous : confirmer, rappel WhatsApp, marquer venue et encaisser, absence avec acompte conservé, déplacer, annuler et libérer le créneau
+- Fichier clientes avec historique, notes de peau et prochain rendez-vous ; carte et tarifs modifiables en direct ; messages automatiques (confirmation, rappel la veille, demande d'avis) avec aperçu ; statistiques de chiffre, soins phares et provenance
+- Carte cadeau personnalisable avec aperçu en direct et image téléchargeable
+
+## Réalisation
+
+- **Stack :** HTML, CSS, JavaScript natif, stockage local, BroadcastChannel (synchronisation entre onglets), Canvas, iCalendar
+- **Typographies :** Cormorant Garamond, Jost
+- **Évolutions possibles :** paiement réel de l'acompte par Stripe, envoi WhatsApp et SMS automatique, comptes praticiennes, synchronisation Google Agenda, nom de domaine et référencement local
+
+| Bureau | Mobile |
+|---|---|
+| ![](media/capture-bureau-complet.png) | ![](media/capture-mobile.png) |
+
+---
+
+Client et contenus fictifs, créés pour la démonstration. Conception, design et développement : **Njundiyimun Béchard** — [github.com/LordLennyx](https://github.com/LordLennyx)
